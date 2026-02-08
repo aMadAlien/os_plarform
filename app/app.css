@@ -95,3 +95,110 @@ button {
   -ms-transform: rotateX(180deg); /* IE 9+ */
   -o-transform: rotateX(180deg); /* Opera */
 }
+
+/* ------------------------- */
+/*         ACCORDION         */
+/* ------------------------- */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+}
+
+.accordion__elem {
+  border-radius: 32px;
+  padding: 32px;
+  background: white;
+}
+
+.accordion__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+  gap: 12px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.accordion__text {
+  color: #464e62;
+  font-size: 16px;
+  /* 🔽 Animation */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+
+  transition:
+    max-height 0.45s ease,
+    opacity 0.35s ease,
+    padding 0.35s ease,
+    transform 0.45s ease;
+}
+
+.accordion__text.active {
+  max-height: 2000px;
+  opacity: 1;
+  transform: translateY(0);
+  padding-top: 24px;
+}
+
+@media (max-width: 768px) {
+  .accordion {
+    gap: 20px;
+  }
+  .accordion__elem {
+    padding: 18px;
+    border-radius: 15px;
+  }
+
+  .accordion__title {
+    font-size: 20px;
+  }
+}
+
+/* ------------------------- */
+/*         PLUS-MINUS        */
+/* ------------------------- */
+.plusminus {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  flex-shrink: 0;
+  background: #000;
+  border-radius: 100%;
+}
+
+.plusminus.active::before {
+  transform: translate(-50%, -50%) rotate(-90deg);
+  opacity: 0;
+}
+
+.plusminus.active::after {
+  transform: translate(-50%, -50%) rotate(0);
+}
+
+.plusminus::before,
+.plusminus::after {
+  content: "";
+  display: block;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: 0.35s;
+  width: 60%;
+  height: 4px;
+  border-radius: 5px;
+}
+
+.plusminus::before {
+  transform: translate(-50%, -50%);
+}
+
+.plusminus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
