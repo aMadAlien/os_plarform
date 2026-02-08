@@ -12,9 +12,13 @@ export function Welcome() {
 
       <Slogan />
 
-      <CoursesBlock />
+      <div className="container">
+        <CoursesBlock />
+      </div>
 
-      <Explaner />
+      <div className="container">
+        <Explaner />
+      </div>
 
       <Warranty />
 

@@ -27,7 +27,20 @@ button {
   border-radius: 48px;
   background: white;
 
-  padding: 100px 120px 50px;
+  padding: 100px 8.333vw 50px;
+  margin-inline: 16px;
+}
+
+@media (min-width: 1500px) {
+  .bg-rounded {
+    padding-inline: 120px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .bg-rounded {
+    padding: 50px 4.5vw 40px;
+  }
 }
 
 /* ------------------------- */
@@ -36,7 +49,19 @@ button {
 .title {
   font-weight: 700;
   font-size: 52px;
-  line-height: 60px;
+  line-height: 1.1;
   letter-spacing: -2.6px;
   color: #22262f;
+}
+
+@media (max-width: 1200px) {
+  .title {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+  }
 }
