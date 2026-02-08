@@ -29,6 +29,10 @@ button {
 
   padding: 100px 8.333vw 50px;
   margin-inline: 16px;
+
+  box-shadow: 0px 4px 40px 0px #5051c433;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
 }
 
 @media (min-width: 1500px) {
@@ -41,6 +45,27 @@ button {
   .bg-rounded {
     padding: 50px 4.5vw 40px;
   }
+}
+
+/* ------------------------- */
+/*           INPUT           */
+/* ------------------------- */
+.input {
+  border: 1px solid #d1d2d9;
+  border-radius: 14px;
+  height: 52px;
+  padding-inline: 26px;
+  display: block;
+  width: 100%;
+}
+
+.input:focus {
+  outline: none;
+  border: 2px solid #5c6885a5;
+}
+
+.input.errored {
+  border-color: red;
 }
 
 /* ------------------------- */
@@ -63,6 +88,22 @@ button {
 @media (max-width: 768px) {
   .title {
     font-size: 28px;
+  }
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  line-height: 140%;
+  font-weight: 500;
+  margin-top: 2px;
+  margin-left: 16px;
+}
+@media (max-width: 768px) {
+  .error-message {
+    font-size: 13px;
+    font-weight: 400;
+    margin-left: 12px;
   }
 }
 
