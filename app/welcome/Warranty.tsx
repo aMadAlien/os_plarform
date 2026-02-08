@@ -4,7 +4,7 @@ export default function Warranty() {
     <section className="max-w-[1136px] w-full mx-auto rounded-[48px] bg-[#DEDBDC] mt-[75px] overflow-hidden">
       <div className="flex justify-between items-stretch gap-5">
 
-        <div className="ml-[80px] mt-6 mb-10 max-w-[475px]">
+        <div className="ml-[80px] mt-7 mb-14 max-w-[475px]">
           <h2 className="text-3xl leading-9 font-semibold mb-7">Як працює гарантія працевлаштування?</h2>
 
           <p className="text-[#464E62] text-lg leading-7 font-semibold mb-7">
@@ -16,11 +16,11 @@ export default function Warranty() {
           </p>
         </div>
 
-        <div className="relative flex-[0_0_440px]">
+        <div className="relative flex-[0_0_500px]">
           <img
-            src="https://images.pexels.com/photos/17648007/pexels-photo-17648007.jpeg"
+            src="../../public/images/warranty.png"
             alt=""
-            className="h-full w-full absolute object-cover"
+            className="h-full w-full absolute object-cover rounded-[48px]"
           />
         </div>
       </div>

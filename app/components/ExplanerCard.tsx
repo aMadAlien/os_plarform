@@ -15,7 +15,7 @@ export function ExplanerCard({
   const cardClass = isOdd ? "bg-white text-black" : "bg-black text-white";
 
   return (
-    <div className={`rounded-[32px] py-8 px-7 ${cardClass}`}>
+    <div className={`rounded-[32px] py-8 pb-4 px-7 ${cardClass}`}>
       <div className={`${isOdd ? "text-black" : "text-white"} font-bold text-3xl leading-9`}>
         {title}
       </div>
@@ -24,7 +24,7 @@ export function ExplanerCard({
       </p>
       <img
         src={image}
-        className="max-h-[200px] w-auto mx-auto mt-5"
+        className="max-h-[200px] w-auto mx-auto mt-10"
         alt="Explaner Card Image"
       />
     </div>

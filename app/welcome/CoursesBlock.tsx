@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { courses } from "./data";
+import { courses, coursesCategories } from "./data";
 import ArrowIcon from "~/assets/icons/ArrowIcon";
 import { TabButton } from "../components/TabButton";
 
@@ -15,12 +15,16 @@ export default function CoursesBlock() {
 
       <div className="flex gap-5 items-center justify-center flex-wrap mb-12">
         <TabButton
-          title={<span className="flex items-center gap-2">Всі <ArrowIcon /></span>}
+          title={
+            <span className="flex items-center gap-2">
+              Всі <ArrowIcon color={courseTab === "all" ? 'black' : 'white'} />
+            </span>
+          }
           active={courseTab === "all"}
           onClick={() => setCourseTab("all")}
         />
         {
-          courses.map((course, index) => (
+          coursesCategories.map((course, index) => (
             <TabButton
               key={index}
               title={course.title}
@@ -39,7 +43,7 @@ export default function CoursesBlock() {
               key={index}
               className="bg-[#F5F6FA] rounded-[32px] h-[228px]"
             >
-              <div className="flex py-7 px-5 gap-1 h-full">
+              <div className="flex py-7 px-5 gap-1 h-full justify-between">
                 <div className="flex flex-col justify-between">
 
                   <div>
@@ -66,10 +70,17 @@ export default function CoursesBlock() {
                   </button>
                 </div>
 
-                <img
-                  src={course.image}
-                  alt={course.title}
-                  className="w-[160px] h-[160px] rounded-full shrink-0 self-end"
+
+                <video
+                  src={course.video}
+                  className="w-[160px] h-[160px] rounded-full shrink-0 self-end object-cover"
+                  muted
+                  loop
+                  preload="auto"
+                  controls={false}
+                  onMouseEnter={(e) => e.target.play()}
+                  onMouseLeave={(e) => e.target.pause()}
+                  playsInline
                 />
               </div>
             </div>
