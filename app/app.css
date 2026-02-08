@@ -8,7 +8,7 @@
 
 html,
 body {
-background: #F5F6FA;
+  background: #f5f6fa;
 }
 
 button {
@@ -64,4 +64,34 @@ button {
   .title {
     font-size: 28px;
   }
+}
+
+/* ------------------------- */
+/*         SCROLLBAR         */
+/* ------------------------- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 7px;
+  background: #000;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.scrollbar--top {
+  transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg); /* Mozilla */
+  -webkit-transform: rotateX(180deg); /* Safari and Chrome */
+  -ms-transform: rotateX(180deg); /* IE 9+ */
+  -o-transform: rotateX(180deg); /* Opera */
 }

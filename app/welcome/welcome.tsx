@@ -3,6 +3,8 @@ import Slogan from "./Slogan";
 import CoursesBlock from "./CoursesBlock";
 import Explaner from "./Explaner";
 import Warranty from "./Warranty";
+import ReviewsSection from "./ReviewsSection";
+
 
 
 export function Welcome() {
@@ -21,6 +23,8 @@ export function Welcome() {
       </div>
 
       <Warranty />
+
+      <ReviewsSection />
 
     </main>
   );
