@@ -71,7 +71,7 @@ export default function Form() {
         <div className="w-full max-w-[626px]">
           <img
             className="w-[378px] mb-4 max-md:w-[90%] max-md:mx-auto"
-            src="../../public/images/form.png" alt="image" />
+            src={`${import.meta.env.BASE_URL}images/form.png`} alt="image" />
           <p className="text-xl leading7 font-medium">Реєструйся на консультацію та зроби перший крок назустріч
             новій професії. Наш менеджер допоможе тобі обрати напрямок
             навчання.</p>

@@ -18,7 +18,7 @@ export default function Warranty() {
 
         <div className="relative w-full min-h-[400px] sm:flex-[1_1_600px] md:flex-[0_0_500px]">
           <img
-            src="../../public/images/warranty.png"
+            src={`${import.meta.env.BASE_URL}images/warranty.png`}
             alt=""
             className="h-full w-full absolute object-cover rounded-[48px]"
           />

@@ -1,4 +1,4 @@
-import logoDark from "../../public/images/logo-dark.png";
+import logoDark from "/images/logo-dark.png";
 
 export default function Slogan() {
   return (

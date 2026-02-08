@@ -1,21 +1,22 @@
 import { useRef, useState } from "react";
 import ArrowShortIcon from "~/assets/icons/ArrowShortIcon";
 
+const b = import.meta.env.BASE_URL;
 const reviews = [
-  "../../public/images/reviews/1.png",
-  "../../public/images/reviews/1.png",
-  "../../public/images/reviews/1.png",
-  "../../public/images/reviews/1.png",
-  "../../public/images/reviews/1.png",
-  "../../public/images/reviews/1.png",
-  "../../public/images/reviews/1.png",
-  "../../public/images/reviews/1.png",
-  "../../public/images/reviews/1.png",
-  "../../public/images/reviews/1.png",
-  "../../public/images/reviews/1.png",
-  "../../public/images/reviews/1.png",
-  "../../public/images/reviews/1.png",
-  "../../public/images/reviews/1.png",
+  `${b}images/reviews/1.png`,
+  `${b}images/reviews/1.png`,
+  `${b}images/reviews/1.png`,
+  `${b}images/reviews/1.png`,
+  `${b}images/reviews/1.png`,
+  `${b}images/reviews/1.png`,
+  `${b}images/reviews/1.png`,
+  `${b}images/reviews/1.png`,
+  `${b}images/reviews/1.png`,
+  `${b}images/reviews/1.png`,
+  `${b}images/reviews/1.png`,
+  `${b}images/reviews/1.png`,
+  `${b}images/reviews/1.png`,
+  `${b}images/reviews/1.png`,
 ]
 
 export default function ReviewsSection() {
