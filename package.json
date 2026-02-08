@@ -1,6 +1,6 @@
 {
-  "name": "my-react-router-app",
-  "private": true,
+  "homepage": "https://username.github.io/os_platform",
+  "name": "os_platform",
   "type": "module",
   "scripts": {
     "build": "react-router build",
