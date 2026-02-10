@@ -1,4 +1,3 @@
-import Slogan from "./Slogan";
 import CoursesBlock from "./CoursesBlock";
 import ReviewsSection from "./ReviewsSection";
 import Accordion from "~/components/Accordion";
@@ -6,13 +5,13 @@ import { faq } from "./data";
 import Form from "./Form";
 import TeamBlock from "./TeamBlock";
 import StudyWays from "./StudyWays";
+import HeroBlock from "./HeroBlock";
 
 export function Welcome() {
 
   return (
     <main className="">
-
-      <Slogan />
+      <HeroBlock />
 
       <div className="container">
         <CoursesBlock />

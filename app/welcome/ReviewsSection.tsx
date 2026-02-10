@@ -112,7 +112,7 @@ export default function ReviewsSection() {
         onMouseMove={handleMouseMove}
       >
         {reviews.map((review, index) => (
-          <div className="rounded-[25px] scrollbar--top w-[85%] md:w-[55%] lg:w-[31%] aspect-[1/1.3] relative shrink-0 overflow-hidden">
+          <div key={index} className="rounded-[25px] scrollbar--top w-[85%] md:w-[55%] lg:w-[31%] aspect-[1/1.3] relative shrink-0 overflow-hidden">
             <img
               src={review}
               alt={`review-${index}`}
