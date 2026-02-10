@@ -1,14 +1,11 @@
 import Slogan from "./Slogan";
 import CoursesBlock from "./CoursesBlock";
-import Explaner from "./Explaner";
-import Warranty from "./Warranty";
 import ReviewsSection from "./ReviewsSection";
 import Accordion from "~/components/Accordion";
 import { faq } from "./data";
 import Form from "./Form";
 import TeamBlock from "./TeamBlock";
-
-
+import StudyWays from "./StudyWays";
 
 export function Welcome() {
 
@@ -21,11 +18,7 @@ export function Welcome() {
         <CoursesBlock />
       </div>
 
-      <div className="container">
-        <Explaner />
-      </div>
-
-      <Warranty />
+      <StudyWays />
 
       <TeamBlock />
 

@@ -35,6 +35,10 @@ button {
   -webkit-backdrop-filter: blur(24px);
 }
 
+.bg-rounded--dark {
+  background: #f5f5f5;
+}
+
 @media (min-width: 1500px) {
   .bg-rounded {
     padding-inline: 120px;
@@ -242,4 +246,37 @@ button {
 
 .plusminus::after {
   transform: translate(-50%, -50%) rotate(90deg);
+}
+
+
+
+
+
+/* ------------------------- */
+/*        TAB ANIMATION       */
+/* ------------------------- */
+.tab-text {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.tab-text.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tab-media {
+  opacity: 0;
+  transform: translateX(24px);
+  transition:
+    opacity 0.35s ease 0.05s,
+    transform 0.35s ease 0.05s;
+}
+
+.tab-media.active {
+  opacity: 1;
+  transform: translateX(0);
 }
