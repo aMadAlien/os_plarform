@@ -59,7 +59,7 @@ export default function CoursesBlock() {
           .map((course, index) => (
             <div
               key={index}
-              className="py-5 md:py-7 px-3 md:px-5 bg-[#F5F6FA] rounded-[32px] h-[228px] overflow-hidden max-w-[560px] w-full max-lg:justify-self-center"
+              className="py-5 md:py-7 px-3 md:px-5 bg-[#F5F6FA] rounded-[32px] h-[228px] overflow-hidden max-w-[560px] w-full max-lg:justify-self-center hover:shadow-lg transition-all duration-300"
             >
               <div className="sm:hidden">
                 <CourseTags tags={course.tags} />
@@ -85,7 +85,7 @@ export default function CoursesBlock() {
 
                 <video
                   src={course.video}
-                  className="w-[120px] sm:w-[150px] md:w-[160px] aspect-square rounded-full shrink-0 self-end object-cover max-sm:translate-[-16px]"
+                  className="w-[120px] sm:w-[150px] md:w-[160px] aspect-square rounded-full shrink-0 self-end object-cover max-sm:translate-x-[-16px]"
                   muted
                   loop
                   preload="auto"

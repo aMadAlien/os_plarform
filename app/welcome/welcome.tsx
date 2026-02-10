@@ -6,6 +6,7 @@ import ReviewsSection from "./ReviewsSection";
 import Accordion from "~/components/Accordion";
 import { faq } from "./data";
 import Form from "./Form";
+import TeamBlock from "./TeamBlock";
 
 
 
@@ -25,6 +26,8 @@ export function Welcome() {
       </div>
 
       <Warranty />
+
+      <TeamBlock />
 
       <ReviewsSection />
 
