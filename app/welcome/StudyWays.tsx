@@ -36,12 +36,12 @@ export default function StudyWays() {
   }, [activeTab]);
 
   return (
-    <div className="bg-rounded bg-rounded--dark mt-10">
+    <div className="max-sm:!px-1.5 bg-rounded bg-rounded--dark mt-10">
       <h2 className="title text-center">
         Як проходить навчання
       </h2>
 
-      <div className="rounded-[32px] bg-white mt-14 py-10">
+      <div className="rounded-[32px] bg-white mt-14 py-8 md:py-10">
         <TabsBlock
           buttons={studyWays.map((way) => ({
             title: way.title,
@@ -51,11 +51,11 @@ export default function StudyWays() {
         />
 
         <div className="flex max-md:flex-col max-md:items-center gap-10 mt-[70px]">
-          <div className={`tab-text ${visible ? 'active' : ''} lg:mt-[7%] pl-5 lg:pl-[56px]`}>
-            <h3 className="text-3xl lg:text-[40px] leading-[42px] font-medium">
+          <div className={`tab-text ${visible ? 'active' : ''} lg:mt-[7%] max-sm:px-3 sm:pl-5 lg:pl-[56px]`}>
+            <h3 className="text-xl sm:text-3xl lg:text-[40px] leading-5 sm:leading-[42px] font-medium">
               {tabData?.title}
             </h3>
-            <p className="text-lg leading-[26px] mt-7">{tabData?.description}</p>
+            <p className="text-base md:text-lg leading-5 md:leading-[26px] mt-7">{tabData?.description}</p>
           </div>
 
           <div className={`tab-media ${visible ? 'active' : ''} shrink-0 w-[55%] max-md:w-full`}>

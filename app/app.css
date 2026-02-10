@@ -253,6 +253,18 @@ button {
 
 
 /* ------------------------- */
+/*        TABS SCROLLBAR      */
+/* ------------------------- */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ------------------------- */
 /*        TAB ANIMATION       */
 /* ------------------------- */
 .tab-text {

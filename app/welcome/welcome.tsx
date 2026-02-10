@@ -18,7 +18,9 @@ export function Welcome() {
         <CoursesBlock />
       </div>
 
-      <StudyWays />
+      <div className="container">
+        <StudyWays />
+      </div>
 
       <TeamBlock />
 
