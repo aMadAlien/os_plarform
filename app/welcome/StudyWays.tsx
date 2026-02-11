@@ -1,6 +1,9 @@
 import { useCallback, useMemo, useRef, useState, type ReactNode } from 'react'
 import { TabsBlock } from '~/components/TabsBlock'
 import { studyWays } from './data'
+import Explaner1 from '/images/explaner-2.1.png'
+import Explaner2 from '/images/explaner-2.2.png'
+import Explaner3 from '/images/explaner-2.3.png'
 
 export type StudyWay = 'couches' | 'warranty' | 'comunity';
 export interface StudyWayData {
@@ -77,6 +80,35 @@ export default function StudyWays() {
             )}
           </div>
         </div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mt-5">
+        {
+          [
+            {
+              title: "Навчання з практикою",
+              text: "Кожен модуль — це реальні завдання та практика, а не суха теорія.",
+              image: Explaner1,
+            }, {
+              title: "Доступ без обмежень",
+              text: "доступ до курсу та всіх оновлень",
+              image: Explaner2,
+            },
+            {
+              title: "Фокус на результат і дохід",
+              text: "Навчання з практичним підходом та акцентом на результат.",
+              image: Explaner3,
+            }
+          ].map((item, index) => (
+            <div key={index} className="last:text-white last:bg-black bg-white rounded-[24px] sm:rounded-[32px] p-4 sm:p-5 pb-8 sm:pb-10">
+              <div className='flex flex-col items-center'>
+                <img className='mb-6 sm:mb-8 w-full max-w-[280px]' src={item.image} alt="Explaner" />
+                <h4 className='font-medium text-xl sm:text-2xl text-center'>{item.title}</h4>
+                <p className='max-w-[280px] text-sm sm:text-base leading-5 sm:leading-[22px] mt-4 sm:mt-6 text-center'>{item.text}</p>
+              </div>
+            </div>
+          ))
+        }
       </div>
     </div>
   )
