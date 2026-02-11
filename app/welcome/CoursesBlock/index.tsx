@@ -39,7 +39,7 @@ export function TabButton({ title, active, onClick }: { title: string | JSX.Elem
 }
 
 export default function CoursesBlock() {
-  const [courseTab, setCourseTab] = useState<"all" | "arbitrage" | "ai-creator" | "p2p-arbitrage" | "office" | "it-dev">("all");
+  const [courseTab, setCourseTab] = useState<"top" | "arbitrage" | "ai-creator" | "p2p-arbitrage" | "office" | "it-dev">("top");
 
   return (
     <section className="bg-rounded !mt-8">
@@ -64,7 +64,7 @@ export default function CoursesBlock() {
 
         <div className="flex flex-col gap-5 md:gap-[44px] md:flex-[0_1_880px]">
           {courses
-            .filter(course => courseTab === "all" || course.id === courseTab)
+            .filter(course => course.id === courseTab)
             .map((course, index) => (
               <div
                 key={index}

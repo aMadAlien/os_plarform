@@ -4,7 +4,7 @@ const b = import.meta.env.BASE_URL;
 
 export const coursesCategories = [
   {
-    id: "all",
+    id: "top",
     title: "ТОП НАПРЯМИ"
   },
   {
@@ -31,46 +31,81 @@ export const coursesCategories = [
 
 export const courses = [
   {
-    id: "arbitrage",
-    title: "Курс з арбітражу трафіку iGaming",
+    id: "top",
+    title: "Курс арбітраж трафіку",
     description: "Навчишся запускати рекламу та заробляти на трафіку без програмування. Підійде для старту з нуля.",
-    tags: ["Nutra", "Facebook", "Google", "iGaming"],
-    video: `${import.meta.env.BASE_URL}video/iGambling.mp4`
+    tags: ["Nutra", "Facebook", "Google", "iGaming",],
+    video: `${import.meta.env.BASE_URL}video/arbitrage-1.mp4`
   },
   {
-    id: "p2p-arbitrage",
+    id: "top",
+    title: "Курс Універсальній Арбітражник",
+    description: "Флагманський курс: системний підхід до арбітражу, масштабування та стабільного результату.",
+    tags: ["VIP", "iGaming", "Crupto", "Exchange"],
+    video: `${import.meta.env.BASE_URL}video/universal.mp4`
+  },
+  {
+    id: "top",
     title: "Курс P2P Арбітраж",
-    description: "Навчишся",
-    tags: ["Binance", "USDT", "Сrypto", "Exchange"],
-    video: `${import.meta.env.BASE_URL}video/p2p.mp4`
+    description: "Заробіток на різниці курсів у крипті. Без трейдингу, з акцентом на безпеку та практику.",
+    tags: ["Binance", "USDT", "Сrypto", "Exchange",],
+    video: `${import.meta.env.BASE_URL}video/p2p-2.mp4`
   },
   {
-    id: "arbitrage",
-    title: "Курс з арбітражу трафіку Nutra",
-    description: "Навчишся",
-    tags: ["Nutra", "Facebook"],
-    video: `${import.meta.env.BASE_URL}video/nutra.mp4`
-  },
-  {
-    id: "ai-creator",
-    title: "Курс AI-креатор для арбітражу",
-    description: "Навчишся",
+    id: "top",
+    title: "Курс AI-креатор",
+    description: "Навчишся використовувати AI для контенту, дизайну та автоматизації задач у роботі й бізнесі.",
     tags: ["AI", "IT-напрямок"],
     video: `${import.meta.env.BASE_URL}video/ai-creator.mp4`
   },
   {
     id: "arbitrage",
-    title: "Курс Універсальній Арбітражник",
-    description: "Навчишся",
-    tags: ["VIP", "iGaming", "Crypto", "Exchange"],
-    video: `${import.meta.env.BASE_URL}video/universal.mp4`
+    title: "Курс з арбітражу трафіку iGaming",
+    description: "Запуск і масштабування реклами iGaming-оферів у Facebook та інших джерелах. Практика + реальні кейси.",
+    tags: ["iGaming", "Facebook"],
+    video: `${import.meta.env.BASE_URL}video/iGambling.mp4`
+  },
+  {
+    id: "arbitrage",
+    title: "Курс арбітражу трафіку-Nutra",
+    description: "Робота з Nutra-оферами: запуск реклами, тест креативів і масштабування прибуткових звʼязок.",
+    tags: ["Nutra", "Facebook"],
+    video: `${import.meta.env.BASE_URL}video/nutra.mp4`
+  },
+  {
+    id: "arbitrage",
+    title: "Курс арбітражу трафіку Telegram",
+    description: "Залучення трафіку через Telegram: канали, реклама та монетизація аудиторії.",
+    tags: ["Заробіток"],
+    video: `${import.meta.env.BASE_URL}video/tg-1.mp4`
   },
   {
     id: "ai-creator",
-    title: "Курс створення сайтів за допомогою AI",
-    description: "Навчишся",
-    tags: ["AI", "IT-напрямок",],
-    video: `${import.meta.env.BASE_URL}video/ai-dev.mp4`
+    title: "Курс AI для бізнесу",
+    description: "Як використовувати AI для автоматизації, маркетингу та продажів.",
+    tags: ["AI", "IT-напрямок"],
+    video: `${import.meta.env.BASE_URL}video/cola.mp4`
+  },
+  {
+    id: "ai-creator",
+    title: "Курс AI-відео та контент",
+    description: "Створення відео для TikTok, Reels і реклами за допомогою AI. Без зйомок, акторів і складного монтажу.",
+    tags: ["AI", "IT-напрямок", "iGaming", "Facebook"],
+    video: `${import.meta.env.BASE_URL}video/content.mp4`
+  },
+  {
+    id: "ai-creator",
+    title: "Курс AI-автоматизація",
+    description: "Оптимізація процесів і рутинних задач через AI. Менше ручної роботи — більше результату.",
+    tags: ["AI", "IT-напрямок", "iGaming", "Facebook"],
+    video: `${import.meta.env.BASE_URL}video/auto.mp4`
+  },
+  {
+    id: "p2p-arbitrage",
+    title: "Курс Збери свій перший криптопортфель",
+    description: "Розберешся в крипті з нуля, навчишся купувати активи та формувати портфель без зайвих ризиків.",
+    tags: ["Binance", "USDT", "Сrypto", "Exchange"],
+    video: `${import.meta.env.BASE_URL}video/p2p.mp4`
   },
 ];
 
