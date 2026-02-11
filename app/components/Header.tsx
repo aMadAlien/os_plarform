@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import CoursesDropdown from "./CoursesDropdown";
 import logoDark from "/images/logo-dark.png";
 
 export default function Header() {
@@ -15,8 +16,8 @@ export default function Header() {
 
           <nav className="flex gap-10 items-center">
             <img src={logoDark} alt="One Media" className="w-[160px]" />
-            <ul className="flex gap-5">
-              <li className="nav-link"><button type="button">Курси</button></li>
+            <ul className="flex items-center gap-5">
+              <li className="nav-link"><CoursesDropdown /></li>
               <li className="nav-link"><Link to="#section-team">Про нас</Link></li>
               <li className="nav-link"><Link to="#section-form">Хочу заробляти</Link></li>
               <li className="nav-link"><Link to="#section-study-ways">Навчання від практиків</Link></li>

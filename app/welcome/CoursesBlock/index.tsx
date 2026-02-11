@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState, type JSX } from "react";
+import { useCallback, useEffect, useRef, useState, type JSX } from "react";
 import { courses, coursesCategories } from "./../data";
 import ArrowIcon from "~/assets/icons/ArrowIcon";
 
@@ -58,8 +58,18 @@ export default function CoursesBlock() {
     }, TRANSITION_MS);
   }, [courseTab]);
 
+  useEffect(() => {
+    const onSelect = (e: Event) => {
+      const id = (e as CustomEvent).detail as CourseTab;
+      setCourseTab(id);
+      setVisible(true);
+    };
+    window.addEventListener("select-course-tab", onSelect);
+    return () => window.removeEventListener("select-course-tab", onSelect);
+  }, []);
+
   return (
-    <section className="bg-rounded !mt-8">
+    <section id="section-courses" className="bg-rounded !mt-8">
       <h2 className="title text-center mb-10 md:mb-[54px]">
         Обирай курс<br />
         Напрями, де реально заробляють
