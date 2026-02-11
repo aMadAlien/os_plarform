@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import CoursesDropdown from "./CoursesDropdown";
+import LanguageDropdown from "./LanguageDropdown";
 import logoDark from "/images/logo-dark.png";
 
 export default function Header() {
@@ -24,7 +25,7 @@ export default function Header() {
             </ul>
           </nav>
 
-          <div className="flex gap-3">
+          <div className="flex items-center gap-7">
 
             <button
               type="button"
@@ -34,6 +35,8 @@ export default function Header() {
                 <path d="M12.5562 10.9062L12.1007 11.359C12.1007 11.359 11.0181 12.4355 8.0631 9.4972C5.10812 6.55901 6.1907 5.48257 6.1907 5.48257L6.4775 5.19738C7.1841 4.49484 7.2507 3.36691 6.6342 2.54348L5.37326 0.859077C4.61028 -0.160083 3.13596 -0.294713 2.26145 0.574827L0.691848 2.13552C0.258228 2.56668 -0.0323518 3.12559 0.0028882 3.74561C0.0930382 5.33182 0.810708 8.7447 4.81536 12.7266C9.0621 16.9492 13.0468 17.117 14.6763 16.9651C15.1917 16.9171 15.6399 16.6546 16.0011 16.2954L17.4217 14.883C18.3806 13.9295 18.1102 12.2949 16.8833 11.628L14.9728 10.5894C14.1672 10.1515 13.1858 10.2801 12.5562 10.9062Z" fill="#606980" />
               </svg>
             </button>
+
+            <LanguageDropdown />
 
             <button
               type="button"
