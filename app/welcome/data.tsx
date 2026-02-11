@@ -107,6 +107,41 @@ export const courses = [
     tags: ["Binance", "USDT", "Сrypto", "Exchange"],
     video: `${import.meta.env.BASE_URL}video/p2p.mp4`
   },
+  {
+    id: "it-dev",
+    title: "Створення Telegram-ботів та AI-ботів",
+    description: "Навчишся створювати ботів для бізнесу, продажів та автоматизації. Інтеграції, автоворонки, CRM, AI-відповіді.",
+    tags: ["AI", "IT-напрямок"],
+    img: `${import.meta.env.BASE_URL}images/courses/bot.jpg`
+  },
+  {
+    id: "it-dev",
+    title: "No-Code / Low-Code розробка",
+    description: "Створення сайтів, сервісів та автоматизацій без програмування.",
+    tags: ["AI", "IT-напрямок"],
+    img: `${import.meta.env.BASE_URL}images/courses/dev-1.jpg`,
+  },
+  {
+    id: "office",
+    title: "Excel та Google Sheets PRO",
+    description: "Формули, зведені таблиці, автоматизація розрахунків, фінансові моделі. Робота з великими масивами даних.",
+    tags: ["Аналітика", "Офісні навички"],
+    img: `${import.meta.env.BASE_URL}images/courses/exel.jpg`,
+  },
+  {
+    id: "office",
+    title: "Бізнес-презентації (PowerPoint / Google Slides) + AI",
+    description: "Як використовувати AI для автоматизації, маркетингу та продажів. Презентації для клієнтів, інвесторів та команди.",
+    tags: ["AI", "Офісні навички"],
+    img: `${import.meta.env.BASE_URL}images/courses/power-point.jpg`,
+  },
+  {
+    id: "office",
+    title: "Офіс-менеджмент та організація процесів",
+    description: "Планування, таск-менеджери, робота з CRM, внутрішня структура компанії.",
+    tags: ["CRM", "Менеджмент"],
+    img: `${import.meta.env.BASE_URL}images/courses/office.jpg`,
+  },
 ];
 
 export const explaners = [

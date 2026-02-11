@@ -113,17 +113,24 @@ export default function CoursesBlock() {
                     </button>
                   </div>
 
-                  <video
-                    src={course.video}
-                    className="w-[120px] sm:w-[180px] lg:w-[220px] aspect-square shrink-0 object-cover rounded-[12px]"
-                    muted
-                    loop
-                    preload="auto"
-                    controls={false}
-                    onMouseEnter={(e) => (e.target as HTMLVideoElement).play()}
-                    onMouseLeave={(e) => (e.target as HTMLVideoElement).pause()}
-                    playsInline
-                  />
+                  {
+                    course.img ?
+                      <img
+                        className="w-[120px] sm:w-[180px] lg:w-[220px] aspect-square shrink-0 object-cover rounded-[12px]"
+                        src={course.img} alt="" />
+                      :
+                      <video
+                        src={course.video}
+                        className="w-[120px] sm:w-[180px] lg:w-[220px] aspect-square shrink-0 object-cover rounded-[12px]"
+                        muted
+                        loop
+                        preload="auto"
+                        controls={false}
+                        onMouseEnter={(e) => (e.target as HTMLVideoElement).play()}
+                        onMouseLeave={(e) => (e.target as HTMLVideoElement).pause()}
+                        playsInline
+                      />
+                  }
                 </div>
               </div>
             ))
