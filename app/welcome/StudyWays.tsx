@@ -2,8 +2,6 @@ import { useCallback, useMemo, useRef, useState, type ReactNode } from 'react'
 import { TabsBlock } from '~/components/TabsBlock'
 import { studyWays } from './data'
 
-const b = import.meta.env.BASE_URL;
-
 export type StudyWay = 'couches' | 'warranty' | 'comunity';
 export interface StudyWayData {
   id: StudyWay
@@ -36,7 +34,7 @@ export default function StudyWays() {
   }, [activeTab]);
 
   return (
-    <div className="max-sm:!px-1.5 bg-rounded bg-rounded--dark mt-10">
+    <div id="section-study-ways" className="max-sm:!px-1.5 bg-rounded bg-rounded--dark mt-10">
       <h2 className="title text-center">
         Як проходить навчання
       </h2>

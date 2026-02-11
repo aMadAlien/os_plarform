@@ -2,7 +2,7 @@ import TeamVideo from '../../public/video/team.mp4'
 
 export default function TeamBlock() {
   return (
-    <div className="container mt-[75px] md:mt-[200px] px-4">
+    <div id="section-team" className="container mt-[75px] md:mt-[200px] px-4">
       <h2 className="title text-center">
         У ритмі нашої команди
       </h2>
@@ -20,7 +20,7 @@ export default function TeamBlock() {
         </div>
         <video
           src={TeamVideo}
-          className="object-cover h-full"
+          className="object-cover h-full w-full"
           muted
           loop
           preload="auto"

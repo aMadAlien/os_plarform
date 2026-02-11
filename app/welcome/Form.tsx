@@ -64,7 +64,7 @@ export default function Form() {
 
 
   return (
-    <div className="bg-rounded mb-[70px] md:mb-[106px]">
+    <div id="section-form" className="bg-rounded mb-[70px] md:mb-[106px]">
       <h2 className="title mb-6">Розпочни свій шлях уже зараз!</h2>
 
       <div className="flex max-md:flex-col gap-6">

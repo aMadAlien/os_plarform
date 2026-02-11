@@ -6,31 +6,34 @@ import Form from "./Form";
 import TeamBlock from "./TeamBlock";
 import StudyWays from "./StudyWays";
 import HeroBlock from "./HeroBlock";
+import Header from "~/components/Header";
 
 export function Welcome() {
 
   return (
-    <main className="">
-      <HeroBlock />
+    <>
+      <Header />
 
-      <div className="container">
-        <CoursesBlock />
-      </div>
+      <main className="">
+        <HeroBlock />
 
-      <div className="container">
-        <StudyWays />
-      </div>
+        <div className="container">
+          <CoursesBlock />
+        </div>
 
-      <TeamBlock />
+        <div className="container">
+          <StudyWays />
+        </div>
 
-      <ReviewsSection />
+        <TeamBlock />
+        <ReviewsSection />
+        <Form />
 
-      <Form />
+        <section className="max-w-[1216px] w-full mx-auto px-4 mb-16">
+          <Accordion data={faq} />
+        </section>
 
-      <section className="max-w-[1216px] w-full mx-auto px-4 mb-16">
-        <Accordion data={faq} />
-      </section>
-
-    </main>
+      </main>
+    </>
   );
 }

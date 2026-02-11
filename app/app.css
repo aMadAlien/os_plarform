@@ -9,6 +9,8 @@
 html,
 body {
   background: #f5f6fa;
+  scroll-behavior: smooth;
+  scroll-padding: 20px;
 }
 
 button {
@@ -248,10 +250,6 @@ button {
   transform: translate(-50%, -50%) rotate(90deg);
 }
 
-
-
-
-
 /* ------------------------- */
 /*        TABS SCROLLBAR      */
 /* ------------------------- */
@@ -338,4 +336,20 @@ button {
 
 .animate-arrow-in {
   animation: arrow-in 0.25s ease both;
+}
+
+/* ------------------------- */
+/*         NAVIGATION        */
+/* ------------------------- */
+.nav-link * {
+  color: #2a2f3c;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 19.04px;
+  margin-inline: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-link *:hover {
+  text-shadow: 2px 2px 25px rgba(0, 0, 0, 0.829);
 }
