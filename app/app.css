@@ -292,3 +292,50 @@ button {
   opacity: 1;
   transform: translateX(0);
 }
+
+/* ------------------------- */
+/*      COURSE CARDS ANIM    */
+/* ------------------------- */
+.course-cards {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.course-cards.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.course-cards.active .course-card {
+  animation: card-slide-in 0.35s ease both;
+}
+
+@keyframes card-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Arrow icon pop-in on active tab */
+@keyframes arrow-in {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-arrow-in {
+  animation: arrow-in 0.25s ease both;
+}

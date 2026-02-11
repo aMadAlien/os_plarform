@@ -1,7 +1,8 @@
-import { useState, type JSX } from "react";
+import { useCallback, useRef, useState, type JSX } from "react";
 import { courses, coursesCategories } from "./../data";
 import ArrowIcon from "~/assets/icons/ArrowIcon";
 
+const TRANSITION_MS = 250;
 
 function CourseTags({ tags }: { tags: string[] }) {
   return (
@@ -28,18 +29,34 @@ export function TabButton({ title, active, onClick }: { title: string | JSX.Elem
       className={`
         ${active ? "border-2 border-black bg-white text-black font-bold" : "text-[#6E7494]"}
         max-lg:border-2 rounded-[40px] h-[38px] md:h-[45px] text-sm md:text-lg leading-[100%] px-5 text-left text-nowrap
-        hover:bg-white hover:text-black transition-colors duration-300`}
+        hover:bg-white hover:text-black transition-all duration-300`}
     >
       <span className="flex items-center justify-between gap-2">
         {title}
-        {active && <ArrowIcon />}
+        {active && <ArrowIcon className="animate-arrow-in" />}
       </span>
     </button>
   );
 }
 
+type CourseTab = "top" | "arbitrage" | "ai-creator" | "p2p-arbitrage" | "office" | "it-dev";
+
 export default function CoursesBlock() {
-  const [courseTab, setCourseTab] = useState<"top" | "arbitrage" | "ai-creator" | "p2p-arbitrage" | "office" | "it-dev">("top");
+  const [courseTab, setCourseTab] = useState<CourseTab>("top");
+  const [visible, setVisible] = useState(true);
+  const pendingTab = useRef<CourseTab | null>(null);
+
+  const handleTabChange = useCallback((id: CourseTab) => {
+    if (id === courseTab) return;
+    pendingTab.current = id;
+    setVisible(false);
+
+    setTimeout(() => {
+      setCourseTab(pendingTab.current!);
+      pendingTab.current = null;
+      setVisible(true);
+    }, TRANSITION_MS);
+  }, [courseTab]);
 
   return (
     <section className="bg-rounded !mt-8">
@@ -56,19 +73,20 @@ export default function CoursesBlock() {
                 key={index}
                 title={course.title}
                 active={courseTab === course.id}
-                onClick={() => setCourseTab(course.id as any)}
+                onClick={() => handleTabChange(course.id as CourseTab)}
               />
             ))
           }
         </div>
 
-        <div className="flex flex-col gap-5 md:gap-[44px] md:flex-[0_1_880px]">
+        <div className={`course-cards ${visible ? "active" : ""} flex flex-col gap-5 md:gap-[44px] md:flex-[0_1_880px]`}>
           {courses
             .filter(course => course.id === courseTab)
             .map((course, index) => (
               <div
-                key={index}
-                className="py-2.5 px-3 xl:pr-[60px] md:px-6 bg-[#F5F6FA] hover:bg-[#DCDCEE] rounded-[20px] h-auto sm:h-[255px] overflow-hidden w-full hover:shadow-lg transition-all duration-300"
+                key={course.title}
+                className="course-card py-2.5 px-3 xl:pr-[60px] md:px-6 bg-[#F5F6FA] hover:bg-[#DCDCEE] rounded-[20px] h-auto sm:h-[255px] overflow-hidden w-full hover:shadow-lg transition-all duration-300"
+                style={{ animationDelay: `${index * 80}ms` }}
               >
                 <div className="flex gap-3 sm:h-full justify-between">
 
