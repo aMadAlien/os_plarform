@@ -27,7 +27,7 @@ export function TabButton({ title, active, onClick }: { title: string | JSX.Elem
       onClick={onClick}
       className={`
         ${active ? "border-2 border-black bg-white text-black font-bold" : "text-[#6E7494]"}
-        rounded-[40px] h-[38px] md:h-[45px] text-sm md:text-lg leading-[100%] px-5 text-left text-nowrap
+        max-lg:border-2 rounded-[40px] h-[38px] md:h-[45px] text-sm md:text-lg leading-[100%] px-5 text-left text-nowrap
         hover:bg-white hover:text-black transition-colors duration-300`}
     >
       <span className="flex items-center justify-between gap-2">
@@ -48,8 +48,8 @@ export default function CoursesBlock() {
         Напрями, де реально заробляють
       </h2>
 
-      <div className="flex gap-7 w-full overflow-hidden">
-        <div className="flex flex-col gap-2.5 md:flex-[1_1_260px]">
+      <div className="flex flex-col max-lg:flex-wrap md:flex-row gap-5 md:gap-7 w-full overflow-hidden">
+        <div className="flex max-lg:flex-wrap lg:flex-col gap-2 md:gap-2.5 lg:flex-[1_0_270px] overflow-x-auto pb-1 md:pb-0 scrollbar-hide">
           {
             coursesCategories.map((course, index) => (
               <TabButton
@@ -62,26 +62,20 @@ export default function CoursesBlock() {
           }
         </div>
 
-        <div className="flex flex-col gap-5 md:gap-[44px] flex-[1_1_880px]">
+        <div className="flex flex-col gap-5 md:gap-[44px] md:flex-[0_1_880px]">
           {courses
             .filter(course => courseTab === "all" || course.id === courseTab)
             .map((course, index) => (
               <div
                 key={index}
-                className="py-2.5 px-3 md:pr-[60px] md:px-6 bg-[#F5F6FA] hover:bg-[#DCDCEE] rounded-[20px] h-[255px] overflow-hidden w-full hover:shadow-lg transition-all duration-300"
+                className="py-2.5 px-3 xl:pr-[60px] md:px-6 bg-[#F5F6FA] hover:bg-[#DCDCEE] rounded-[20px] h-auto sm:h-[255px] overflow-hidden w-full hover:shadow-lg transition-all duration-300"
               >
-                <div className="sm:hidden">
-                  <CourseTags tags={course.tags} />
-                </div>
-                <div className="flex gap-1 sm:h-full justify-between">
+                <div className="flex gap-3 sm:h-full justify-between">
 
-                  <div className="flex flex-col justify-between">
-
-                    <div className="max-sm:hidden">
-                      <CourseTags tags={course.tags} />
-                    </div>
-                    <h3 className="text-base sm:text-2xl md:text-3xl max-sm:leading-5 text-[#22262F] font-bold">{course.title}</h3>
-                    <p className="text-[#333] font-semibold text-sm leading-5 md:w-[470px]">{course.description}</p>
+                  <div className="flex flex-col justify-between gap-2 sm:gap-0 py-1 sm:py-0">
+                    <CourseTags tags={course.tags} />
+                    <h3 className="text-base sm:text-2xl lg:text-3xl max-md:leading-5 text-[#22262F] font-bold">{course.title}</h3>
+                    <p className="text-[#333] font-semibold text-xs sm:text-sm leading-4 sm:leading-5 md:max-w-[470px]">{course.description}</p>
 
                     <button
                       type="button"
@@ -93,13 +87,13 @@ export default function CoursesBlock() {
 
                   <video
                     src={course.video}
-                    className="w-[220px] aspect-square shrink-0 object-cover"
+                    className="w-[120px] sm:w-[180px] lg:w-[220px] aspect-square shrink-0 object-cover rounded-[12px]"
                     muted
                     loop
                     preload="auto"
                     controls={false}
-                    onMouseEnter={(e) => e.target.play()}
-                    onMouseLeave={(e) => e.target.pause()}
+                    onMouseEnter={(e) => (e.target as HTMLVideoElement).play()}
+                    onMouseLeave={(e) => (e.target as HTMLVideoElement).pause()}
                     playsInline
                   />
                 </div>

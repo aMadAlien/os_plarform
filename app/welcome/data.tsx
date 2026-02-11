@@ -13,7 +13,7 @@ export const coursesCategories = [
   },
   {
     id: "ai-creator",
-    title: "АІ-Штучний інтелект"
+    title: "Штучний інтелект"
   },
   {
     id: "p2p-arbitrage",
