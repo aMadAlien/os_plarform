@@ -346,12 +346,44 @@ button {
   font-weight: 700;
   font-size: 14px;
   line-height: 19.04px;
-  margin-inline: 10px;
+  margin-inline: 0.344vw;
   transition: all 0.3s ease-in-out;
+  text-wrap: nowrap;
 }
 
 .nav-link *:hover {
   text-shadow: 2px 2px 25px rgba(0, 0, 0, 0.829);
+}
+
+/* ------------------------- */
+/*        MOBILE MENU        */
+/* ------------------------- */
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 0.35s ease,
+    opacity 0.25s ease;
+}
+
+.mobile-menu.active {
+  max-height: 400px;
+  opacity: 1;
+}
+
+.mobile-menu__link {
+  display: block;
+  padding: 10px 8px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #2a2f3c;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.mobile-menu__link:hover {
+  background: #f5f6fa;
 }
 
 /* ------------------------- */
