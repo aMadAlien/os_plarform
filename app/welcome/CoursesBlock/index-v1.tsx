@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { courses, coursesCategories } from "./data";
+import { courses, coursesCategories } from "./../data";
 import ArrowIcon from "~/assets/icons/ArrowIcon";
-import { TabButton } from "../components/TabButton";
+import { TabButton } from "../../components/TabButton";
 
 
 function CourseTags({ tags }: { tags: string[] }) {

@@ -4,16 +4,28 @@ const b = import.meta.env.BASE_URL;
 
 export const coursesCategories = [
   {
+    id: "all",
+    title: "ТОП НАПРЯМИ"
+  },
+  {
     id: "arbitrage",
     title: "Арбітраж трафіку"
   },
   {
     id: "ai-creator",
-    title: "Ai-креатор"
+    title: "АІ-Штучний інтелект"
   },
   {
     id: "p2p-arbitrage",
     title: "P2P Арбітраж"
+  },
+  {
+    id: "it-dev",
+    title: "IT — Вхід у професію"
+  },
+  {
+    id: "office",
+    title: "Офісні програми"
   },
 ];
 
@@ -21,36 +33,42 @@ export const courses = [
   {
     id: "arbitrage",
     title: "Курс з арбітражу трафіку iGaming",
+    description: "Навчишся запускати рекламу та заробляти на трафіку без програмування. Підійде для старту з нуля.",
     tags: ["Nutra", "Facebook", "Google", "iGaming"],
     video: `${import.meta.env.BASE_URL}video/iGambling.mp4`
   },
   {
     id: "p2p-arbitrage",
     title: "Курс P2P Арбітраж",
+    description: "Навчишся",
     tags: ["Binance", "USDT", "Сrypto", "Exchange"],
     video: `${import.meta.env.BASE_URL}video/p2p.mp4`
   },
   {
     id: "arbitrage",
     title: "Курс з арбітражу трафіку Nutra",
+    description: "Навчишся",
     tags: ["Nutra", "Facebook"],
     video: `${import.meta.env.BASE_URL}video/nutra.mp4`
   },
   {
     id: "ai-creator",
     title: "Курс AI-креатор для арбітражу",
+    description: "Навчишся",
     tags: ["AI", "IT-напрямок"],
     video: `${import.meta.env.BASE_URL}video/ai-creator.mp4`
   },
   {
     id: "arbitrage",
     title: "Курс Універсальній Арбітражник",
+    description: "Навчишся",
     tags: ["VIP", "iGaming", "Crypto", "Exchange"],
     video: `${import.meta.env.BASE_URL}video/universal.mp4`
   },
   {
     id: "ai-creator",
     title: "Курс створення сайтів за допомогою AI",
+    description: "Навчишся",
     tags: ["AI", "IT-напрямок",],
     video: `${import.meta.env.BASE_URL}video/ai-dev.mp4`
   },
