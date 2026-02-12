@@ -3,35 +3,7 @@ import { Link } from "react-router";
 import ArrowShortIcon from "~/assets/icons/ArrowShortIcon";
 import Checkbox from "~/components/Checkbox";
 import Input from "~/components/Input";
-
-
-interface FormData { name: string, telegram: string, phone: string };
-
-function validateData(data: FormData) {
-  const errors: { [key: string]: string } = {};
-  const requiredMessage = "Обов'язково для заповнення.";
-
-  if (!data.name || data.name.trim() === "") {
-    errors.name = requiredMessage;
-  }
-
-  if (!data.telegram || data.telegram.trim() === "") {
-    errors.telegram = requiredMessage;
-  }
-
-  const phoneRegex = /^\+?[0-9]{10,15}$/;
-  if (!data.phone || data.phone.trim() === "") {
-    errors.phone = requiredMessage;
-  }
-
-  if (data.phone && !phoneRegex.test(data.phone)) {
-    errors.phone = "Невірний номер телефону. Він повинен містити від 10 до 15 цифр.";
-  }
-
-  return errors;
-}
-
-
+import { validateData, type FormData } from "~/utils/validation";
 
 
 export default function Form() {
@@ -42,7 +14,7 @@ export default function Form() {
   const [errors, setErrors] = useState<null | { [key: string]: string }>(null);
 
   function submit(data: FormData) {
-    const errors = validateData(data);
+    const errors = validateData(data as FormData);
 
     if (Object.keys(errors).length > 0) {
       setErrors(errors);
@@ -120,7 +92,7 @@ export default function Form() {
             className="flex gap-3 items-center text-left"
           >
             <Checkbox isActive={accepted} />
-            <p className="text-2sm leading-6 text-[#5F6379]">
+            <p className="text-sm leading-6 text-[#5F6379]">
               <span>Ви погоджуєтесь з </span>
               <Link to={''} className="text-[#1A2040] font-medium hover:underline">Оферта</Link>
               <span> та </span>

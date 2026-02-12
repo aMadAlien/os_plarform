@@ -113,6 +113,13 @@ button {
   }
 }
 
+.form-label {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 19px;
+  color: #2a2f3c;
+}
+
 /* ------------------------- */
 /*         SCROLLBAR         */
 /* ------------------------- */

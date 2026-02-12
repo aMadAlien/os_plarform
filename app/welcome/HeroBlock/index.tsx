@@ -1,23 +1,13 @@
+import ButtonBlack from '~/components/ButtonBlack';
+import FormModal from '~/components/FormModal';
+import { useGeneralContext } from '~/context/GeneralContext';
 import useCountUp from '~/utils/useCountUp';
 
 const b = import.meta.env.BASE_URL;
 
-
-
-function Button({ title, onClick }: { title: string, onClick: () => void }) {
-  return (
-    <button
-      type="button"
-      className="rounded-[8px] bg-black text-white py-3 px-7 block border border-[#E25544] hover:opacity-70 transition-all duration-300 ease-in-out"
-      onClick={onClick}
-    >
-      {title}
-    </button>
-  )
-}
-
 export default function HeroBlock() {
   const { count, ref: counterRef } = useCountUp(99);
+  const { setModal } = useGeneralContext()
 
   return (
     <div className='mb-16 md:mb-[120px] pt-20 md:pt-[100px] overflow-hidden'>
@@ -68,13 +58,19 @@ export default function HeroBlock() {
               <p className="text-xl md:text-[28px] leading-[120%] md:leading-[100%] font-medium text-[#464E62] mb-6">Старт з нуля — дохід від <span className="text-[#902335]">$1000</span></p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-5">
-                <Button
+                <ButtonBlack
                   title="Обрати курс"
                   onClick={() => { }}
                 />
-                <Button
+                <ButtonBlack
                   title="Безкоштовна консультація"
-                  onClick={() => { }}
+                  onClick={() => {
+                    setModal({
+                      isOpen: true,
+                      hasCloseBtn: true,
+                      children: <FormModal />,
+                    })
+                  }}
                 />
               </div>
             </div>

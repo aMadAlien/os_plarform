@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import CoursesDropdown from "./CoursesDropdown";
 import LanguageDropdown from "./LanguageDropdown";
 import logoDark from "/images/logo-dark.png";
+import ButtonBlack from "./ButtonBlack";
 
 function BurgerIcon({ open }: { open: boolean }) {
   return (
@@ -82,12 +83,10 @@ export default function Header() {
             <li><Link onClick={closeMenu} to="#section-study-ways" className="mobile-menu__link">Навчання від практиків</Link></li>
           </ul>
 
-          <button
-            type="button"
-            className="rounded-[8px] bg-black text-white text-sm py-3 w-full mt-4 border border-[#E25544] hover:opacity-70 transition-all duration-300 ease-in-out"
-          >
-            Підібрати навчання
-          </button>
+          <ButtonBlack
+            title="Підібрати навчання"
+            onClick={() => { }}
+          />
         </div>
 
       </div>
