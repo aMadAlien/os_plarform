@@ -2,13 +2,13 @@ import SocialImg from '/images/footer.png';
 
 export default function Contacts() {
   return (
-    <div className="">
+    <div className="lg:max-w-[320px]">
       <div className="text-lg font-bold border-b border-[#333333] pb-6 w-full">Контакти</div>
 
-      <div className="flex gap-3 mt-8 mb-6">
+      <div className="flex gap-3 mt-6 md:mt-8 mb-4 md:mb-6">
 
         <div
-          className="w-[54px] h-[54px] rounded-full flex items-center justify-center"
+          className="w-[44px] h-[44px] md:w-[54px] md:h-[54px] rounded-full flex items-center justify-center shrink-0"
           style={{
             background: `linear-gradient(180deg, #6559CA 0%, #BC318F 30%, #E33F5F 50%, #F77638 70%, #FEC66D 100%),
                 radial-gradient(141.42% 141.42% at 100% 100%, #D9317A 0%, rgba(217, 49, 122, 0) 100%),
@@ -26,11 +26,11 @@ export default function Contacts() {
         </div>
 
         <a href=""
-          className="text-xl leading-5 underline font-medium max-w-[270px]"
+          className="text-base md:text-xl leading-5 underline font-medium max-w-[270px]"
         >У нас є крутий Instagram, в якому ми ділимося новинами IT. Приєднуйся!</a>
       </div>
 
-      <img src={SocialImg} alt="image" className="w-full" />
+      <img src={SocialImg} alt="image" className="w-full rounded-[12px]" />
     </div>
   )
 }
