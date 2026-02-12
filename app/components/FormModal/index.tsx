@@ -1,5 +1,6 @@
 import { validateData, type FormData } from "~/utils/validation";
 import Input from "../Input";
+import PhoneInput from "../PhoneInput";
 import { useState } from "react";
 import { Link } from "react-router";
 import ButtonBlack from "../ButtonBlack";
@@ -47,7 +48,7 @@ export default function FormModal() {
               <li key={index} className="flex gap-3 items-centr mb-2 sm:mb-4">
                 <svg className="shrink-0 max-sm:w-[20px]" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="28" height="28" rx="14" fill="#B4D9DD" />
-                  <path d="M19.3346 10L12.0013 17.3333L8.66797 14" stroke="#3F7075" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M19.3346 10L12.0013 17.3333L8.66797 14" stroke="#3F7075" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
                 <span className="text-sm md:text-lg font-medium leading-5 md:leading-6">{item}</span>
               </li>
@@ -79,13 +80,12 @@ export default function FormModal() {
               Телефон
               <span className="bg-[#FF602E] w-[4px] h-[4px] rounded-full" />
             </span>
-            <Input
+            <PhoneInput
               value={phone}
-              onChange={e => {
+              onChange={value => {
                 setErrors(null);
-                setPhone(e);
+                setPhone(value);
               }}
-              placeholder="+1"
               errored={!!errors?.phone}
             />
           </div>

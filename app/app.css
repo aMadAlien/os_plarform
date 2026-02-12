@@ -75,6 +75,172 @@ button {
 }
 
 /* ------------------------- */
+/*        PHONE INPUT        */
+/* ------------------------- */
+.phone-input-wrapper {
+  position: relative;
+}
+
+.phone-input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d1d2d9;
+  border-radius: 14px;
+  height: 52px;
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+
+.phone-input:focus-within {
+  border: 2px solid #5c6885a5;
+}
+
+.phone-input.errored {
+  border-color: red;
+}
+
+.phone-input__toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 4px 0 14px;
+  height: 100%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 14px;
+  color: #2a2f3c;
+  transition: background 0.15s ease;
+}
+
+.phone-input__toggle:hover {
+  background: #f5f6fa;
+}
+
+.phone-flag {
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.phone-input__dial {
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.phone-input__arrow {
+  transition: transform 0.2s ease;
+  color: #7a8399;
+  flex-shrink: 0;
+}
+
+.phone-input__arrow--open {
+  transform: rotate(180deg);
+}
+
+.phone-input__field {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0 14px 0 8px;
+  font-size: 14px;
+  background: transparent;
+  min-width: 0;
+}
+
+/* Dropdown */
+.phone-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #d1d2d9;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 50;
+  overflow: hidden;
+  animation: phone-dropdown-in 0.15s ease;
+}
+
+@keyframes phone-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.phone-dropdown__search {
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  border-bottom: 1px solid #e8e9ed;
+  outline: none;
+  font-size: 14px;
+}
+
+.phone-dropdown__list {
+  max-height: 200px;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+}
+
+.phone-dropdown__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: left;
+  transition: background 0.12s ease;
+}
+
+.phone-dropdown__item:hover {
+  background: #f5f6fa;
+}
+
+.phone-dropdown__item--active {
+  background: #e8f4f5;
+}
+
+.phone-dropdown__item-flag {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.phone-dropdown__item-name {
+  flex: 1;
+  color: #2a2f3c;
+  font-weight: 500;
+}
+
+.phone-dropdown__item-dial {
+  color: #7a8399;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.phone-dropdown__empty {
+  padding: 12px;
+  text-align: center;
+  color: #7a8399;
+  font-size: 14px;
+}
+
+/* ------------------------- */
 /*        TYPOGRAPHY         */
 /* ------------------------- */
 .title {
