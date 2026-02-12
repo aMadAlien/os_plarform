@@ -7,6 +7,7 @@ import TeamBlock from "./TeamBlock";
 import StudyWays from "./StudyWays";
 import HeroBlock from "./HeroBlock";
 import Header from "~/components/Header";
+import Footer from "~/components/Footer.tsx";
 
 export function Welcome() {
 
@@ -34,6 +35,8 @@ export function Welcome() {
         </section>
 
       </main>
+
+      <Footer />
     </>
   );
 }

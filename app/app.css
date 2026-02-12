@@ -393,6 +393,7 @@ button {
   opacity: 0;
   transform: translateY(-8px);
   pointer-events: none;
+  overflow: hidden;
   transition:
     opacity 0.2s ease,
     transform 0.2s ease;

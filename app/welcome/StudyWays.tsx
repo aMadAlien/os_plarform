@@ -42,7 +42,7 @@ export default function StudyWays() {
         Як проходить навчання
       </h2>
 
-      <div className="rounded-[32px] bg-white mt-14 py-8 md:py-10">
+      <div className="rounded-[32px] bg-white mt-14 py-8 md:py-10 overflow-hidden">
         <TabsBlock
           buttons={studyWays.map((way) => ({
             title: way.title,
