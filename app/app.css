@@ -404,3 +404,36 @@ button {
   transform: translateY(0);
   pointer-events: auto;
 }
+
+/* ------------------------- */
+/*         BACKGROUND        */
+/* ------------------------- */
+.bg-circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.8;
+  background-color: #e5e6eb;
+  box-shadow:
+    0 4px 200px 0 rgba(15, 15, 16, 0.05),
+    inset 0 0 100px 0 #fff;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+}
+
+.bg-circle--1 {
+  width: 2100px;
+}
+
+.bg-circle--2 {
+  width: 1500px;
+}
+
+.bg-circle--3 {
+  width: 1050px;
+}
+
+.bg-circle--4 {
+  width: 650px;
+}

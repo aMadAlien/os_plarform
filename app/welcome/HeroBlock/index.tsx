@@ -20,14 +20,24 @@ export default function HeroBlock() {
   const { count, ref: counterRef } = useCountUp(99);
 
   return (
-    <div className='mb-16 md:mb-[120px] pt-20 md:pt-[120px]'>
+    <div className='mb-16 md:mb-[120px] pt-20 md:pt-[100px] overflow-hidden'>
       <div className="container px-4">
 
         <div className="mx-auto max-w-[1136px] w-full relative">
+          <div className="relative top-[10rem] right-[-22%]">
+            <div className="bg-circle bg-circle--1">
+              <div className="bg-circle bg-circle--2">
+                <div className="bg-circle bg-circle--3">
+                  <div className="bg-circle bg-circle--4" />
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="flex flex-col md:flex-row md:justify-between w-full">
 
-            <div className="flex max-w-[560px] flex-col justify-center py-[20px] relative z-10">
-              <div className="flex gap-2.5 items-center mb-8 md:mb-[57px]">
+            <div className="flex max-w-[530px] flex-col justify-center py-8 md:py-15 relative z-10">
+              <div className="flex gap-2.5 items-center mb-8 md:mb-8">
                 <div className="flex gap-2 items-center">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M12.5327 9.42167C12.9265 9.64092 13.3719 9.76476 13.8535 9.76476C15.3635 9.76476 16.5888 8.53859 16.5888 7.0286C16.5888 5.52629 15.3635 4.30014 13.8535 4.30014C13.5542 4.30014 13.2696 4.35167 12.9996 4.4386C13.3935 5.07398 13.6196 5.82475 13.6196 6.62014C13.6196 7.70014 13.218 8.67784 12.5327 9.42167Z" fill="#464E62" />
@@ -53,9 +63,9 @@ export default function HeroBlock() {
 
               </div>
 
-              <h1 className="text-[32px] md:text-[48px] lg:text-[64px] leading-[100%] font-bold tracking-[-1.5px] md:tracking-[-3px] mb-4 md:mb-6">Навчальна платформа для онлайн-заробітку</h1>
+              <h1 className="text-[32px] md:text-[48px]  leading-[100%] font-semibold tracking-[-1.5px] md:tracking-[-3px] mb-4">Навчальна-платформа для онлайн заробітку</h1>
 
-              <p className="text-xl md:text-[28px] lg:text-[32px] leading-[120%] md:leading-[100%] font-medium text-[#464E62] mb-6 md:mb-9">Старт з нуля — дохід від <span className="text-[#902335]">$1000</span></p>
+              <p className="text-xl md:text-[28px] leading-[120%] md:leading-[100%] font-medium text-[#464E62] mb-6">Старт з нуля — дохід від <span className="text-[#902335]">$1000</span></p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-5">
                 <Button
@@ -69,7 +79,7 @@ export default function HeroBlock() {
               </div>
             </div>
 
-            <div className="hidden md:flex absolute right-0 justify-center">
+            <div className="hidden md:flex absolute max-lg:bottom-0 right-0 lg:-right-20 justify-center">
               <img
                 className="w-[450px] lg:w-[656px] h-auto"
                 src={`${b}images/hero.png`}
@@ -85,7 +95,7 @@ export default function HeroBlock() {
         <div className="flex flex-col md:flex-row w-full gap-4">
 
           <div
-            className="p-5 md:p-8 rounded-[24px] md:rounded-[32px] bg-[#212631] grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-8"
+            className="p-5 lg:p-8 rounded-[24px] md:rounded-[32px] bg-[#212631] grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-"
             style={{
               boxShadow: '1px 4px 12.7px 0px #B22E42',
             }}
@@ -110,22 +120,21 @@ export default function HeroBlock() {
                 }
               ].map((item, index) => (
                 <div key={index} className="flex items-center gap-3 md:gap-4">
-                  <div className="bg-[#2A2F3C] rounded-[12px] md:rounded-[16px] w-[56px] h-[56px] md:w-[88px] md:h-[88px] flex items-center justify-center shrink-0">
+                  <div className="bg-[#2A2F3C] rounded-[12px] md:rounded-[16px] w-[56px] h-[56px] md:w-[68px] md:h-[68px] flex items-center justify-center shrink-0">
                     <img
                       className="w-[24px] h-[24px] md:w-[32px] md:h-[32px]"
                       src={`${b}images/icons/${item.icon}.webp`}
                       alt=""
                     />
                   </div>
-                  <p className="text-white font-medium text-base md:text-lg leading-[22px] md:leading-[26px] md:w-[70%]">{item.title}</p>
+                  <p className="text-white font-medium text-sm lg:text-base md:text-[17px] leading-[22px] md:leading-[26px] md:w-[70%]">{item.title}</p>
                 </div>
               ))
             }
-
           </div>
 
           <div
-            className="p-5 md:p-8 rounded-[24px] md:rounded-[32px] bg-[#1F1D1D] md:min-w-[350px] flex flex-col justify-between gap-3"
+            className="p-5 md:p-8 rounded-[24px] md:rounded-[32px] bg-[#1F1D1D] lg:min-w-[350px] flex flex-col justify-between gap-3"
             style={{
               boxShadow: '1px 4px 12.7px 0px #B22E42',
             }}
@@ -136,7 +145,7 @@ export default function HeroBlock() {
               alt=""
             />
 
-            <div ref={counterRef} className="text-[#B22E42] font-semibold text-[64px] md:text-[96px] leading-[100%] font-[Manrope]">
+            <div ref={counterRef} className="text-[#B22E42] font-bold lg:font-semibold text-[64px] lg:text-[96px] leading-[100%] font-[Manrope]">
               {count}%
             </div>
 

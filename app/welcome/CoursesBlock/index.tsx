@@ -28,7 +28,7 @@ export function TabButton({ title, active, onClick }: { title: string | JSX.Elem
       onClick={onClick}
       className={`
         ${active ? "border-2 border-black bg-white text-black font-bold" : "text-[#6E7494]"}
-        max-lg:border-2 rounded-[40px] h-[38px] md:h-[45px] text-sm md:text-lg leading-[100%] px-5 text-left text-nowrap
+        max-lg:border-2 rounded-[40px] h-[38px] md:h-[45px] text-xs md:text-lg leading-[100%] px-4 sm:px-5 text-left text-nowrap
         hover:bg-white hover:text-black transition-all duration-300`}
     >
       <span className="flex items-center justify-between gap-2">
@@ -76,7 +76,7 @@ export default function CoursesBlock() {
       </h2>
 
       <div className="flex flex-col max-lg:flex-wrap md:flex-row gap-5 md:gap-7 w-full overflow-hidden">
-        <div className="flex max-lg:flex-wrap lg:flex-col gap-2 md:gap-2.5 lg:flex-[1_0_270px] overflow-x-auto pb-1 md:pb-0 scrollbar-hide">
+        <div className="flex max-lg:flex-wrap lg:flex-col gap-2 md:gap-2.5 lg:flex-[1_0_270px] max-md:w-[inherit] overflow-x-auto pb-1 md:pb-0 scrollbar-hide">
           {
             coursesCategories.map((course, index) => (
               <TabButton

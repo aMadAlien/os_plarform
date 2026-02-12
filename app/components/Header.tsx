@@ -20,9 +20,9 @@ export default function Header() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <div className="absolute w-full px-3 md:px-5 z-50">
+    <div className="absolute w-full px-3 md:px-5 z-50 mt-3">
       <div
-        className="bg-white rounded-[16px] p-4 md:p-6"
+        className="bg-white rounded-[16px] p-4 md:px-6 md:py-2"
         style={{
           boxShadow: '0px 1px 2px 0px #22262F14'
         }}
@@ -57,7 +57,7 @@ export default function Header() {
 
             <button
               type="button"
-              className="max-xl:text-wrap max-xl:w-min rounded-[8px] bg-black text-white text-sm py-3 px-5 xl:px-7 block border border-[#E25544] hover:opacity-70 transition-all duration-300 ease-in-out"
+              className="md:text-nowrap max-xl:w-min rounded-[8px] bg-black text-white text-sm py-3 px-5 xl:px-7 block border border-[#E25544] hover:opacity-70 transition-all duration-300 ease-in-out"
             >
               Підібрати навчання
             </button>
