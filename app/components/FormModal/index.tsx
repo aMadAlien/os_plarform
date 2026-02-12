@@ -60,45 +60,49 @@ export default function FormModal() {
       <div className="w-full max-w-[350px] md:max-w-[368px] rounded-[14px] md:rounded-[32px] bg-white p-[2.222vw]">
         <div className="flex flex-col gap-4 w-full max-w-[506px] max-md:mx-auto">
           <div className="w-full">
-            <span className="form-label flex gap-2 items-center">Ім’я
+            <span className={`${errors?.name && '!text-red-500'} form-label flex gap-2 items-center`}>
+              Ім’я
               <span className="bg-[#FF602E] w-[4px] h-[4px] rounded-full" />
             </span>
             <Input
               value={name}
-              onChange={setName}
+              onChange={e => {
+                setErrors(null);
+                setName(e);
+              }}
               placeholder="Іван"
               errored={!!errors?.name}
             />
-            {
-              !errors?.name ? null :
-                <span className='error-message'>{errors.name}</span>
-            }
           </div>
           <div className="w-full">
-            <span className="form-label">Телефон</span>
+            <span className={`${errors?.phone && '!text-red-500'} form-label flex gap-2 items-center`}>
+              Телефон
+              <span className="bg-[#FF602E] w-[4px] h-[4px] rounded-full" />
+            </span>
             <Input
               value={phone}
-              onChange={setPhone}
+              onChange={e => {
+                setErrors(null);
+                setPhone(e);
+              }}
               placeholder="+1"
               errored={!!errors?.phone}
             />
-            {
-              !errors?.phone ? null :
-                <span className='error-message'>{errors.phone}</span>
-            }
           </div>
           <div className="w-full">
-            <span className="form-label">Телефон</span>
+            <span className={`${errors?.telegram && '!text-red-500'} form-label flex gap-2 items-center`}>
+              Телеграм
+              <span className="bg-[#FF602E] w-[4px] h-[4px] rounded-full" />
+            </span>
             <Input
               value={telegram}
-              onChange={setTelegram}
+              onChange={e => {
+                setErrors(null);
+                setTelegram(e);
+              }}
               placeholder="@os_platform"
               errored={!!errors?.telegram}
             />
-            {
-              !errors?.telegram ? null :
-                <span className='error-message'>{errors.telegram}</span>
-            }
           </div>
 
           <ButtonBlack
