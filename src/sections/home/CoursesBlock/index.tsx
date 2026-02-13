@@ -1,0 +1,159 @@
+"use client";
+
+import { useCallback, useEffect, useRef, useState, type JSX } from "react";
+import { courses, coursesCategories } from "./../data";
+import ArrowIcon from "@/assets/icons/ArrowIcon";
+
+const TRANSITION_MS = 250;
+
+function CourseTags({ tags }: { tags: string[] }) {
+  return (
+    <div className="flex gap-1.5">
+      {
+        tags.map((tag, index) => (
+          <span
+            key={index}
+            className="first:bg-black first:text-white bg-[#B3B8C7] text-black hover:bg-black hover:text-white h-[20px] md:h-[27px] text-xs leading-[20px] md:leading-[27px] font-medium rounded-[13px] px-3 transition-colors duration-300 select-none"
+          >
+            {tag}
+          </span>
+        ))
+      }
+    </div>
+  )
+}
+
+export function TabButton({ title, active, onClick }: { title: string | JSX.Element; active: boolean; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`
+        ${active ? "border-2 border-black bg-white text-black font-bold" : "text-[#6E7494]"}
+        max-lg:border-2 rounded-[40px] h-[38px] md:h-[45px] text-xs md:text-lg leading-[100%] px-4 sm:px-5 text-left text-nowrap
+        hover:bg-white hover:text-black transition-all duration-300`}
+    >
+      <span className="flex items-center justify-between gap-2">
+        {title}
+        {active && <ArrowIcon className="animate-arrow-in" />}
+      </span>
+    </button>
+  );
+}
+
+type CourseTab = "top" | "arbitrage" | "ai-creator" | "p2p-arbitrage" | "office" | "it-dev";
+
+export default function CoursesBlock() {
+  const [courseTab, setCourseTab] = useState<CourseTab>("top");
+  const [visible, setVisible] = useState(true);
+  const pendingTab = useRef<CourseTab | null>(null);
+
+  const handleTabChange = useCallback((id: CourseTab) => {
+    if (id === courseTab) return;
+    pendingTab.current = id;
+    setVisible(false);
+
+    setTimeout(() => {
+      setCourseTab(pendingTab.current!);
+      pendingTab.current = null;
+      setVisible(true);
+    }, TRANSITION_MS);
+  }, [courseTab]);
+
+  useEffect(() => {
+    const onSelect = (e: Event) => {
+      const id = (e as CustomEvent).detail as CourseTab;
+      setCourseTab(id);
+      setVisible(true);
+    };
+    window.addEventListener("select-course-tab", onSelect);
+    return () => window.removeEventListener("select-course-tab", onSelect);
+  }, []);
+
+  return (
+    <section id="section-courses" className="bg-rounded !mt-8">
+      <h2 className="title text-center mb-10 md:mb-[54px]">
+        Обирай курс<br />
+        Напрями, де реально заробляють
+      </h2>
+
+      <div className="flex flex-col max-lg:flex-wrap md:flex-row gap-5 md:gap-7 w-full overflow-hidden">
+        <div className="flex max-lg:flex-wrap lg:flex-col gap-2 md:gap-2.5 lg:flex-[1_0_270px] max-md:w-[inherit] overflow-x-auto pb-1 md:pb-0 scrollbar-hide">
+          {
+            coursesCategories.map((course, index) => (
+              <TabButton
+                key={index}
+                title={course.title}
+                active={courseTab === course.id}
+                onClick={() => handleTabChange(course.id as CourseTab)}
+              />
+            ))
+          }
+        </div>
+
+        <div>
+          <div className={`course-cards ${visible ? "active" : ""} flex flex-col gap-5 md:gap-[44px] md:flex-[0_1_880px]`}>
+            {courses
+              .filter(course => course.id === courseTab)
+              .map((course, index) => (
+                <div
+                  key={course.title}
+                  className="course-card py-2.5 px-3 xl:pr-[60px] md:px-6 bg-[#F5F6FA] hover:bg-[#DCDCEE] rounded-[20px] h-auto sm:h-[255px] overflow-hidden w-full hover:shadow-lg transition-all duration-300"
+                  style={{ animationDelay: `${index * 80}ms` }}
+                >
+                  <div className="flex max-sm:flex-col gap-3 sm:h-full justify-between">
+
+                    <div className="flex flex-col justify-between gap-2 sm:gap-0 py-1 sm:py-0 max-sm:order-2">
+                      <CourseTags tags={course.tags} />
+                      <h3 className="text-base sm:text-2xl lg:text-3xl max-md:leading-5 text-[#22262F] font-bold">{course.title}</h3>
+                      <p className="text-[#333] font-semibold text-xs sm:text-sm leading-4 sm:leading-5 md:max-w-[470px]">{course.description}</p>
+
+                      <button
+                        type="button"
+                        className="flex gap-3 items-center text-black font-bold text-sm sm:text-base leading-6 hover:translate-x-[20px] hover:scale-[1.05] transition-all duration-300"
+                      >
+                        Детальніше <ArrowIcon className="max-sm:w-[26px]" />
+                      </button>
+                    </div>
+
+                    {
+                      course.img ?
+                        <img
+                          className="w-full sm:w-[180px] lg:w-[220px] aspect-square shrink-0 object-cover rounded-[12px]"
+                          src={course.img} alt="" />
+                        :
+                        <video
+                          src={course.video}
+                          className="w-full sm:w-[180px] lg:w-[220px] aspect-square shrink-0 object-cover rounded-[12px]"
+                          muted
+                          loop
+                          preload="auto"
+                          controls={false}
+                          onMouseEnter={(e) => (e.target as HTMLVideoElement).play()}
+                          onMouseLeave={(e) => (e.target as HTMLVideoElement).pause()}
+                          playsInline
+                        />
+                    }
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+
+          <div className="max-sm:flex-wrap bg-black rounded-[20px] mt-15 px-5 py-4 flex gap-5">
+            <img src="/images/icons/emoji.png" alt="" className="shrink-0" />
+            <span className="text-white text-sm font-medium">Не можеш визначитися з курсом? Не кип'яти!</span>
+
+            <button
+              type="button"
+              className="flex gap-2 items-center ml-auto self-center border border-white px-5 py-1.5 rounded-[50px] text-white h-[31px] leading-none text-nowrap"
+            >
+              Пройти тест
+              <ArrowIcon color="white" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
