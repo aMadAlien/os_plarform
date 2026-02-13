@@ -37,12 +37,13 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          BASE_PATH: "/${{ github.event.repository.name }}"
+          BUILD_OUTPUT: export
+          NEXT_PUBLIC_BASE_PATH: "/${{ github.event.repository.name }}"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./build/client
+          path: ./out
 
   deploy:
     environment:
