@@ -1,11 +1,15 @@
+"use client";
+
 import Link from "next/link";
-import { navigationFooter } from "./navigation";
+import { useDictionary } from "@/i18n/DictionaryContext";
 
 export default function NavCols() {
+  const { dict } = useDictionary();
+
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-5 mt-8">
       {
-        navigationFooter.map((data, index) => (
+        dict.footer.navigation.map((data, index) => (
           <div key={index}>
             <div className="font-bold text-sm md:text-base mb-3 md:mb-5">{data.title}</div>
             <ul className="flex flex-col gap-3 md:gap-4">

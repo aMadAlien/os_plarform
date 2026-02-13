@@ -1,18 +1,11 @@
 "use client";
 
-import { useCallback, useMemo, useRef, useState, type ReactNode } from 'react'
+import { useCallback, useMemo, useRef, useState } from 'react'
 import { TabsBlock } from '@/components/TabsBlock'
-import { studyWays } from './data'
+import { useDictionary } from '@/i18n/DictionaryContext'
+import { joinWithBr } from '@/i18n/jsx-helpers'
 
 export type StudyWay = 'couches' | 'warranty' | 'comunity';
-export interface StudyWayData {
-  id: StudyWay
-  category: string
-  title: string
-  description: ReactNode
-  img?: string
-  video?: string
-}
 
 const TRANSITION_MS = 300;
 
@@ -20,8 +13,9 @@ export default function StudyWays() {
   const [activeTab, setActiveTab] = useState<StudyWay>('couches');
   const [visible, setVisible] = useState(true);
   const pendingTab = useRef<StudyWay | null>(null);
+  const { dict } = useDictionary();
 
-  const tabData = useMemo(() => studyWays.find(way => way.id === activeTab), [activeTab]);
+  const tabData = useMemo(() => dict.studyWays.tabs.find(way => way.id === activeTab), [activeTab, dict]);
 
   const handleTabChange = useCallback((id: StudyWay) => {
     if (id === activeTab) return;
@@ -38,15 +32,15 @@ export default function StudyWays() {
   return (
     <div id="section-study-ways" className="max-sm:!px-1.5 bg-rounded bg-rounded--dark mt-10">
       <h2 className="title text-center">
-        Як проходить навчання
+        {dict.studyWays.sectionTitle}
       </h2>
 
       <div className="rounded-[32px] bg-white mt-14 py-8 md:py-10 overflow-hidden">
         <TabsBlock
-          buttons={studyWays.map((way) => ({
+          buttons={dict.studyWays.tabs.map((way) => ({
             title: way.title,
             active: way.id === activeTab,
-            onClick: () => handleTabChange(way.id),
+            onClick: () => handleTabChange(way.id as StudyWay),
           }))}
         />
 
@@ -55,7 +49,7 @@ export default function StudyWays() {
             <h3 className="text-xl sm:text-3xl lg:text-[40px] leading-5 sm:leading-[42px] font-medium">
               {tabData?.title}
             </h3>
-            <p className="text-base md:text-lg leading-5 md:leading-[26px] mt-7">{tabData?.description}</p>
+            <p className="text-base md:text-lg leading-5 md:leading-[26px] mt-7">{tabData ? joinWithBr(tabData.descriptionParts) : null}</p>
           </div>
 
           <div className={`tab-media ${visible ? 'active' : ''} shrink-0 w-[55%] max-md:w-full`}>
@@ -83,22 +77,7 @@ export default function StudyWays() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mt-5">
         {
-          [
-            {
-              title: "Навчання з практикою",
-              text: "Кожен модуль — це реальні завдання та практика, а не суха теорія.",
-              image: "/images/explaner-2.1.png",
-            }, {
-              title: "Доступ без обмежень",
-              text: "доступ до курсу та всіх оновлень",
-              image: "/images/explaner-2.2.png",
-            },
-            {
-              title: "Фокус на результат і дохід",
-              text: "Навчання з практичним підходом та акцентом на результат.",
-              image: "/images/explaner-2.3.png",
-            }
-          ].map((item, index) => (
+          dict.studyWays.cards.map((item, index) => (
             <div key={index} className="last:text-white last:bg-black bg-white rounded-[24px] sm:rounded-[32px] p-4 sm:p-5 pb-8 sm:pb-10">
               <div className='flex flex-col items-center'>
                 <img className='mb-6 sm:mb-8 w-full max-w-[280px]' src={item.image} alt="Explaner" />

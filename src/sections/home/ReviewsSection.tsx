@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import ArrowShortIcon from "@/assets/icons/ArrowShortIcon";
+import { useDictionary } from "@/i18n/DictionaryContext";
 
 const reviews = [
   "/images/reviews/1.png",
@@ -24,9 +25,10 @@ export default function ReviewsSection() {
   const reviewsRef = useRef<HTMLDivElement | null>(null);
   const [isAtStart, setIsAtStart] = useState<boolean>(true);
   const [isAtEnd, setIsAtEnd] = useState<boolean>(false);
-  const isMouseDown = useRef(false);  // Відстежуємо, чи натиснута мишка
-  const startX = useRef(0);  // Позиція початку
-  const scrollLeft = useRef(0);  // Поточна позиція скролу
+  const isMouseDown = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+  const { dict } = useDictionary();
 
   const handleScroll = () => {
     if (!reviewsRef.current) return;
@@ -57,7 +59,7 @@ export default function ReviewsSection() {
     if (!isMouseDown.current) return;
 
     const x = e.clientX;
-    const walk = (x - startX.current) * 2; // швидкість прокручування
+    const walk = (x - startX.current) * 2;
     reviewsRef.current.scrollLeft = scrollLeft.current - walk;
   };
 
@@ -74,9 +76,9 @@ export default function ReviewsSection() {
     <section className="container !mt-[75px] !mb-[90px] px-4">
       <div className="flex max-sm:flex-col justify-between items-end gap-5 mb-2">
         <div>
-          <h2 className="text-base md:text-4xl text-[#5F6379] font-medium md:mb-1">Відгуки</h2>
+          <h2 className="text-base md:text-4xl text-[#5F6379] font-medium md:mb-1">{dict.reviews.label}</h2>
           <h2 className="title">
-            Краще за нас скажуть лише <br className="max-md:hidden" /> результати студентів
+            {dict.reviews.title}
           </h2>
         </div>
 

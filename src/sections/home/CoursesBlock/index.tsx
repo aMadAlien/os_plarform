@@ -1,8 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState, type JSX } from "react";
-import { courses, coursesCategories } from "./../data";
 import ArrowIcon from "@/assets/icons/ArrowIcon";
+import { useDictionary } from "@/i18n/DictionaryContext";
 
 const TRANSITION_MS = 250;
 
@@ -47,6 +47,7 @@ export default function CoursesBlock() {
   const [courseTab, setCourseTab] = useState<CourseTab>("top");
   const [visible, setVisible] = useState(true);
   const pendingTab = useRef<CourseTab | null>(null);
+  const { dict } = useDictionary();
 
   const handleTabChange = useCallback((id: CourseTab) => {
     if (id === courseTab) return;
@@ -73,14 +74,14 @@ export default function CoursesBlock() {
   return (
     <section id="section-courses" className="bg-rounded !mt-8">
       <h2 className="title text-center mb-10 md:mb-[54px]">
-        Обирай курс<br />
-        Напрями, де реально заробляють
+        {dict.courses.sectionTitle}<br />
+        {dict.courses.sectionSubtitle}
       </h2>
 
       <div className="flex flex-col max-lg:flex-wrap md:flex-row gap-5 md:gap-7 w-full overflow-hidden">
         <div className="flex max-lg:flex-wrap lg:flex-col gap-2 md:gap-2.5 lg:flex-[1_0_270px] max-md:w-[inherit] overflow-x-auto pb-1 md:pb-0 scrollbar-hide">
           {
-            coursesCategories.map((course, index) => (
+            dict.courses.categories.map((course, index) => (
               <TabButton
                 key={index}
                 title={course.title}
@@ -93,7 +94,7 @@ export default function CoursesBlock() {
 
         <div>
           <div className={`course-cards ${visible ? "active" : ""} flex flex-col gap-5 md:gap-[44px] md:flex-[0_1_880px]`}>
-            {courses
+            {dict.courses.items
               .filter(course => course.id === courseTab)
               .map((course, index) => (
                 <div
@@ -112,7 +113,7 @@ export default function CoursesBlock() {
                         type="button"
                         className="flex gap-3 items-center text-black font-bold text-sm sm:text-base leading-6 hover:translate-x-[20px] hover:scale-[1.05] transition-all duration-300"
                       >
-                        Детальніше <ArrowIcon className="max-sm:w-[26px]" />
+                        {dict.courses.detailsButton} <ArrowIcon className="max-sm:w-[26px]" />
                       </button>
                     </div>
 
@@ -142,13 +143,13 @@ export default function CoursesBlock() {
 
           <div className="max-sm:flex-wrap bg-black rounded-[20px] mt-15 px-5 py-4 flex gap-5">
             <img src="/images/icons/emoji.png" alt="" className="shrink-0" />
-            <span className="text-white text-sm font-medium">Не можеш визначитися з курсом? Не кип'яти!</span>
+            <span className="text-white text-sm font-medium">{dict.courses.cantDecide}</span>
 
             <button
               type="button"
               className="flex gap-2 items-center ml-auto self-center border border-white px-5 py-1.5 rounded-[50px] text-white h-[31px] leading-none text-nowrap"
             >
-              Пройти тест
+              {dict.courses.takeTest}
               <ArrowIcon color="white" />
             </button>
           </div>

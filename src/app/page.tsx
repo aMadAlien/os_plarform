@@ -1,40 +1,17 @@
-import CoursesBlock from "@/sections/home/CoursesBlock";
-import ReviewsSection from "@/sections/home/ReviewsSection";
-import Accordion from "@/components/Accordion";
-import { faq } from "@/sections/home/data";
-import Form from "@/sections/home/Form";
-import TeamBlock from "@/sections/home/TeamBlock";
-import StudyWays from "@/sections/home/StudyWays";
-import HeroBlock from "@/sections/home/HeroBlock";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+"use client";
 
-export default function HomePage() {
-  return (
-    <>
-      <Header />
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { defaultLocale, isValidLocale } from "@/i18n/config";
 
-      <main>
-        <HeroBlock />
+export default function RootPage() {
+  const router = useRouter();
 
-        <div className="container">
-          <CoursesBlock />
-        </div>
+  useEffect(() => {
+    const browserLang = navigator.language?.split("-")[0] || "";
+    const locale = isValidLocale(browserLang) ? browserLang : defaultLocale;
+    router.replace(`/${locale}`);
+  }, [router]);
 
-        <div className="container">
-          <StudyWays />
-        </div>
-
-        <TeamBlock />
-        <ReviewsSection />
-        <Form />
-
-        <section className="max-w-[1216px] w-full mx-auto px-4 mb-16">
-          <Accordion data={faq} />
-        </section>
-      </main>
-
-      <Footer />
-    </>
-  );
+  return null;
 }

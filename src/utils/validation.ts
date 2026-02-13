@@ -1,8 +1,14 @@
 export interface FormData { name: string, telegram: string, phone: string };
 
-export function validateData(data: FormData) {
+export interface ValidationMessages {
+  required: string;
+  invalidPhone: string;
+}
+
+export function validateData(data: FormData, messages?: ValidationMessages) {
   const errors: { [key: string]: string } = {};
-  const requiredMessage = "Обов'язково для заповнення.";
+  const requiredMessage = messages?.required ?? "Required.";
+  const invalidPhoneMessage = messages?.invalidPhone ?? "Invalid phone number.";
 
   if (!data.name || data.name.trim() === "") {
     errors.name = requiredMessage;
@@ -18,7 +24,7 @@ export function validateData(data: FormData) {
   }
 
   if (data.phone && !phoneRegex.test(data.phone)) {
-    errors.phone = "Невірний номер телефону. Він повинен містити від 10 до 15 цифр.";
+    errors.phone = invalidPhoneMessage;
   }
 
   return errors;

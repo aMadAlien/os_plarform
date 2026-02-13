@@ -1,7 +1,13 @@
+"use client";
+
+import { useDictionary } from "@/i18n/DictionaryContext";
+
 export default function Contacts() {
+  const { dict } = useDictionary();
+
   return (
     <div className="lg:max-w-[320px]">
-      <div className="text-lg font-bold border-b border-[#333333] pb-6 w-full">Контакти</div>
+      <div className="text-lg font-bold border-b border-[#333333] pb-6 w-full">{dict.footer.contactsTitle}</div>
 
       <div className="flex gap-3 mt-6 md:mt-8 mb-4 md:mb-6">
 
@@ -25,7 +31,7 @@ export default function Contacts() {
 
         <a href=""
           className="text-base md:text-xl leading-5 underline font-medium max-w-[270px]"
-        >У нас є крутий Instagram, в якому ми ділимося новинами IT. Приєднуйся!</a>
+        >{dict.footer.instagramText}</a>
       </div>
 
       <img src="/images/footer.png" alt="image" className="w-full rounded-[12px]" />

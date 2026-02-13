@@ -1,4 +1,4 @@
-import { type JSX } from "react";
+import { type ReactNode } from "react";
 
 export function ExplanerCard({
   title,
@@ -6,8 +6,8 @@ export function ExplanerCard({
   image,
   index,
 }: {
-  title: string | JSX.Element;
-  description: string | JSX.Element;
+  title: ReactNode;
+  description: ReactNode;
   image: string;
   index: number;
 }) {

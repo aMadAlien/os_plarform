@@ -5,6 +5,7 @@ import Link from "next/link";
 import CoursesDropdown from "./CoursesDropdown";
 import LanguageDropdown from "./LanguageDropdown";
 import ButtonBlack from "./ButtonBlack";
+import { useDictionary } from "@/i18n/DictionaryContext";
 
 function BurgerIcon({ open }: { open: boolean }) {
   return (
@@ -18,6 +19,7 @@ function BurgerIcon({ open }: { open: boolean }) {
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { dict } = useDictionary();
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -36,9 +38,9 @@ export default function Header() {
             <img src="/images/logo-dark.png" alt="One Media" className="w-[120px] md:w-[160px]" />
             <ul className="hidden lg:flex items-center gap-2 flex-[0_1_560px] justify-between">
               <li className="nav-link"><CoursesDropdown /></li>
-              <li className="nav-link"><Link href="#section-team">Про нас</Link></li>
-              <li className="nav-link"><Link href="#section-form">Хочу заробляти</Link></li>
-              <li className="nav-link"><Link href="#section-study-ways">Навчання від практиків</Link></li>
+              <li className="nav-link"><Link href="#section-team">{dict.header.aboutUs}</Link></li>
+              <li className="nav-link"><Link href="#section-form">{dict.header.wantToEarn}</Link></li>
+              <li className="nav-link"><Link href="#section-study-ways">{dict.header.learningFromPractitioners}</Link></li>
             </ul>
           </nav>
 
@@ -61,7 +63,7 @@ export default function Header() {
               type="button"
               className="md:text-nowrap max-xl:w-min rounded-[8px] bg-black text-white text-sm py-3 px-5 xl:px-7 block border border-[#E25544] hover:opacity-70 transition-all duration-300 ease-in-out"
             >
-              Підібрати навчання
+              {dict.header.selectTraining}
             </button>
           </div>
 
@@ -78,14 +80,14 @@ export default function Header() {
         {/* Mobile menu */}
         <div className={`mobile-menu ${menuOpen ? "active" : ""} lg:hidden`}>
           <ul className="flex flex-col gap-1 pt-4">
-            <li><Link onClick={closeMenu} href="#section-courses" className="mobile-menu__link">Курси</Link></li>
-            <li><Link onClick={closeMenu} href="#section-team" className="mobile-menu__link">Про нас</Link></li>
-            <li><Link onClick={closeMenu} href="#section-form" className="mobile-menu__link">Хочу заробляти</Link></li>
-            <li><Link onClick={closeMenu} href="#section-study-ways" className="mobile-menu__link">Навчання від практиків</Link></li>
+            <li><Link onClick={closeMenu} href="#section-courses" className="mobile-menu__link">{dict.header.courses}</Link></li>
+            <li><Link onClick={closeMenu} href="#section-team" className="mobile-menu__link">{dict.header.aboutUs}</Link></li>
+            <li><Link onClick={closeMenu} href="#section-form" className="mobile-menu__link">{dict.header.wantToEarn}</Link></li>
+            <li><Link onClick={closeMenu} href="#section-study-ways" className="mobile-menu__link">{dict.header.learningFromPractitioners}</Link></li>
           </ul>
 
           <ButtonBlack
-            title="Підібрати навчання"
+            title={dict.header.selectTraining}
             onClick={() => { }}
           />
         </div>

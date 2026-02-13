@@ -1,18 +1,23 @@
+"use client";
+
+import { useDictionary } from "@/i18n/DictionaryContext";
 
 export default function Warranty() {
+  const { dict } = useDictionary();
+
   return (
     <section className="max-w-[1136px] w-full mx-auto rounded-[48px] bg-[#DEDBDC] mt-[75px] overflow-hidden">
       <div className="flex max-md:flex-col justify-between items-stretch gap-5">
 
         <div className="max-md:mx-8 ml-8 lg:ml-[80px] mt-7 mb-14 md:max-w-[475px]">
-          <h2 className="text-3xl leading-9 font-semibold mb-7">Як працює гарантія працевлаштування?</h2>
+          <h2 className="text-3xl leading-9 font-semibold mb-7">{dict.warranty.title}</h2>
 
           <p className="text-[#464E62] text-lg leading-7 font-semibold mb-7">
-            Ми співпрацюємо з командами та проєктами на ринку арбітражу, P2P та digital-напрямків, які зацікавлені у підготовлених спеціалістах.
+            {dict.warranty.paragraph1}
           </p>
 
           <p className="text-[#464E62] text-lg leading-7 font-semibold">
-            Під час навчання ти отримуєш практичні навички та працюєш з реальними інструментами, а після завершення курсу ми допомагаємо з виходом на ринок: рекомендаціями, підготовкою до співбесід та передачею кандидатів партнерам.
+            {dict.warranty.paragraph2}
           </p>
         </div>
 

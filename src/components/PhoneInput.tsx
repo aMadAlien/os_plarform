@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import countries, { type Country } from "@/utils/countries";
+import { useDictionary } from "@/i18n/DictionaryContext";
 
 function Flag({ code, size = 20 }: { code: string; size?: number }) {
   return (
@@ -51,6 +52,7 @@ export default function PhoneInput({
   const [search, setSearch] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
+  const { dict } = useDictionary();
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -144,7 +146,7 @@ export default function PhoneInput({
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Пошук країни..."
+            placeholder={dict.phoneInput.searchCountry}
             className="phone-dropdown__search"
           />
           <ul className="phone-dropdown__list">
@@ -162,7 +164,7 @@ export default function PhoneInput({
               </li>
             ))}
             {filtered.length === 0 && (
-              <li className="phone-dropdown__empty">Нічого не знайдено</li>
+              <li className="phone-dropdown__empty">{dict.phoneInput.nothingFound}</li>
             )}
           </ul>
         </div>

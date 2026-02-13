@@ -1,15 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { locales, type Locale } from "@/i18n/config";
+import { useDictionary } from "@/i18n/DictionaryContext";
+
+const labels: Record<Locale, string> = {
+  uk: "Укр",
+  en: "Eng",
+};
 
 export default function LanguageSwitcher() {
-  const [activeLang, setActiveLang] = useState<"ua" | "ru">('ua');
+  const { locale } = useDictionary();
+  const pathname = usePathname();
+  const router = useRouter();
+
+  function switchLocale(newLocale: Locale) {
+    if (newLocale === locale) return;
+    const segments = pathname.split("/");
+    segments[1] = newLocale;
+    router.push(segments.join("/"));
+  }
 
   return (
     <div className="bg-white w-fit ml-auto rounded-[12px] h-[26px] p-[2px] flex mt-5 mr-15">
-
-      <LangBtn title="Укр" isActive={activeLang === 'ua'} onClick={() => setActiveLang('ua')} />
-      <LangBtn title="Ру" isActive={activeLang === 'ru'} onClick={() => setActiveLang('ru')} />
+      {locales.map((loc) => (
+        <LangBtn
+          key={loc}
+          title={labels[loc]}
+          isActive={locale === loc}
+          onClick={() => switchLocale(loc)}
+        />
+      ))}
     </div>
   )
 }

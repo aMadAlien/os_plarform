@@ -4,10 +4,12 @@ import ButtonBlack from '@/components/ButtonBlack';
 import FormModal from '@/components/FormModal';
 import { useGeneralContext } from '@/context/GeneralContext';
 import useCountUp from '@/utils/useCountUp';
+import { useDictionary } from '@/i18n/DictionaryContext';
 
 export default function HeroBlock() {
   const { count, ref: counterRef } = useCountUp(99);
   const { setModal } = useGeneralContext()
+  const { dict } = useDictionary();
 
   return (
     <div className='mb-16 md:mb-[120px] pt-20 md:pt-[100px] overflow-hidden'>
@@ -39,7 +41,7 @@ export default function HeroBlock() {
                       <path fillRule="evenodd" clipRule="evenodd" d="M9.39802 11.6178C9.38577 11.6178 9.37419 11.6178 9.36269 11.6178C6.73652 11.6178 4.8219 12.9086 4.1096 15.1617L4.02344 15.434L4.26729 15.5832C5.65805 16.4309 7.3196 16.8432 9.34652 16.8432H9.41194C11.4404 16.8432 13.1027 16.4309 14.4934 15.5832L14.738 15.434L14.6519 15.1617C13.9389 12.9086 12.0249 11.6178 9.39802 11.6178Z" fill="#464E62" />
                     </g>
                   </svg>
-                  <span className="text-[#2A2F3C] text-sm md:text-base font-medium">Для новачків</span>
+                  <span className="text-[#2A2F3C] text-sm md:text-base font-medium">{dict.hero.forBeginners}</span>
                 </div>
 
                 <span className="w-[6px] h-[6px] rounded-full bg-[#D0D5E1]" />
@@ -48,22 +50,22 @@ export default function HeroBlock() {
                   <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M9.16669 0C9.48385 0 9.77355 0.180064 9.91395 0.464484L12.2952 5.28872L17.6205 6.06709C17.9343 6.11296 18.1949 6.33296 18.2927 6.63464C18.3905 6.93631 18.3086 7.26735 18.0814 7.48863L14.2287 11.2411L15.138 16.5425C15.1916 16.8551 15.0631 17.1711 14.8064 17.3575C14.5498 17.544 14.2095 17.5685 13.9288 17.4209L9.16669 14.9165L4.40457 17.4209C4.12381 17.5685 3.78356 17.544 3.52691 17.3575C3.27027 17.1711 3.14173 16.8551 3.19535 16.5425L4.10459 11.2411L0.251918 7.48863C0.0247317 7.26735 -0.0571624 6.93631 0.0406526 6.63464C0.138467 6.33296 0.399038 6.11296 0.712838 6.06709L6.03814 5.28872L8.41944 0.464484C8.55983 0.180064 8.84951 0 9.16669 0Z" fill="#FFBE15" />
                   </svg>
-                  <span className="text-[#2A2F3C] text-sm md:text-base font-medium">Онлайн дохід</span>
+                  <span className="text-[#2A2F3C] text-sm md:text-base font-medium">{dict.hero.onlineIncome}</span>
                 </div>
 
               </div>
 
-              <h1 className="text-[32px] md:text-[48px]  leading-[100%] font-semibold tracking-[-1.5px] md:tracking-[-3px] mb-4">Навчальна-платформа для онлайн заробітку</h1>
+              <h1 className="text-[32px] md:text-[48px]  leading-[100%] font-semibold tracking-[-1.5px] md:tracking-[-3px] mb-4">{dict.hero.title}</h1>
 
-              <p className="text-xl md:text-[28px] leading-[120%] md:leading-[100%] font-medium text-[#464E62] mb-6">Старт з нуля — дохід від <span className="text-[#902335]">$1000</span></p>
+              <p className="text-xl md:text-[28px] leading-[120%] md:leading-[100%] font-medium text-[#464E62] mb-6">{dict.hero.subtitlePrefix} <span className="text-[#902335]">{dict.hero.subtitleAmount}</span></p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-5">
                 <ButtonBlack
-                  title="Обрати курс"
+                  title={dict.hero.chooseCourse}
                   onClick={() => { }}
                 />
                 <ButtonBlack
-                  title="Безкоштовна консультація"
+                  title={dict.hero.freeConsultation}
                   onClick={() => {
                     setModal({
                       isOpen: true,
@@ -97,24 +99,7 @@ export default function HeroBlock() {
             }}
           >
             {
-              [
-                {
-                  title: "Навчаємо арбітражу, P2P та AI-професіям на основі реальної практики",
-                  icon: "cometIcon"
-                },
-                {
-                  title: "Власна система навчання, створена всередині команди",
-                  icon: "GoogleIcon"
-                },
-                {
-                  title: "Працюємо з цими напрямками з 2022 року",
-                  icon: "globusIcon"
-                },
-                {
-                  title: "Реальні кейси, інструменти та робота з живим ринком",
-                  icon: "academyIcon"
-                }
-              ].map((item, index) => (
+              dict.hero.features.map((item, index) => (
                 <div key={index} className="flex items-center gap-3 md:gap-4">
                   <div className="bg-[#2A2F3C] rounded-[12px] md:rounded-[16px] w-[56px] h-[56px] md:w-[68px] md:h-[68px] flex items-center justify-center shrink-0">
                     <img
@@ -145,7 +130,7 @@ export default function HeroBlock() {
               {count}%
             </div>
 
-            <p className="text-white font-medium text-base leading-6">починали з повного нуля</p>
+            <p className="text-white font-medium text-base leading-6">{dict.hero.startedFromZero}</p>
           </div>
 
         </div>

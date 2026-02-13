@@ -6,18 +6,20 @@ import PhoneInput from "../PhoneInput";
 import { useState } from "react";
 import Link from "next/link";
 import ButtonBlack from "../ButtonBlack";
+import { useDictionary } from "@/i18n/DictionaryContext";
 
 export default function FormModal() {
   const [name, setName] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
   const [telegram, setTelegram] = useState<string>('');
   const [errors, setErrors] = useState<null | { [key: string]: string }>(null);
+  const { dict } = useDictionary();
 
   function submit(data: FormData) {
-    const errors = validateData(data as FormData);
+    const validationErrors = validateData(data as FormData, dict.validation);
 
-    if (Object.keys(errors).length > 0) {
-      setErrors(errors);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
       return;
     }
     setErrors(null);
@@ -37,16 +39,12 @@ export default function FormModal() {
   return (
     <div className="w-full max-w-[990px] text-[#2A2F3C] max-sm:mt-5 flex max-sm:flex-col gap-6 md:gap-10 items-center md:p-[2.778vw]">
       <div>
-        <p className="text-[#E25544] font-semibold text-xs mb-2.5">ЗВ'ЯЖИСЯ З НАМИ</p>
-        <h2 className="font-semibold max-md:text-2xl text-[3.611vw] sm:leading-[4.167vw] 2xl:text-[52px] 2xl:eading-[60px] mb-5">Потрібно більше інформації?</h2>
+        <p className="text-[#E25544] font-semibold text-xs mb-2.5">{dict.formModal.contactUs}</p>
+        <h2 className="font-semibold max-md:text-2xl text-[3.611vw] sm:leading-[4.167vw] 2xl:text-[52px] 2xl:eading-[60px] mb-5">{dict.formModal.needMoreInfo}</h2>
 
         <ul>
           {
-            [
-              "Отримай відповіді на всі запитання",
-              "З'ясуй, який формат навчання тобі підійде",
-              "Дізнайся про наші ексклюзивні пропозиції",
-            ].map((item, index) => (
+            dict.formModal.benefits.map((item, index) => (
               <li key={index} className="flex gap-3 items-centr mb-2 sm:mb-4">
                 <svg className="shrink-0 max-sm:w-[20px]" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="28" height="28" rx="14" fill="#B4D9DD" />
@@ -64,7 +62,7 @@ export default function FormModal() {
         <div className="flex flex-col gap-4 w-full max-w-[506px] max-md:mx-auto">
           <div className="w-full">
             <span className={`${errors?.name && '!text-red-500'} form-label flex gap-2 items-center`}>
-              Ім’я
+              {dict.formModal.nameLabel}
               <span className="bg-[#FF602E] w-[4px] h-[4px] rounded-full" />
             </span>
             <Input
@@ -73,13 +71,13 @@ export default function FormModal() {
                 setErrors(null);
                 setName(e);
               }}
-              placeholder="Іван"
+              placeholder={dict.formModal.namePlaceholder}
               errored={!!errors?.name}
             />
           </div>
           <div className="w-full">
             <span className={`${errors?.phone && '!text-red-500'} form-label flex gap-2 items-center`}>
-              Телефон
+              {dict.formModal.phoneLabel}
               <span className="bg-[#FF602E] w-[4px] h-[4px] rounded-full" />
             </span>
             <PhoneInput
@@ -93,7 +91,7 @@ export default function FormModal() {
           </div>
           <div className="w-full">
             <span className={`${errors?.telegram && '!text-red-500'} form-label flex gap-2 items-center`}>
-              Телеграм
+              {dict.formModal.telegramLabel}
               <span className="bg-[#FF602E] w-[4px] h-[4px] rounded-full" />
             </span>
             <Input
@@ -102,22 +100,22 @@ export default function FormModal() {
                 setErrors(null);
                 setTelegram(e);
               }}
-              placeholder="@os_platform"
+              placeholder={dict.formModal.telegramPlaceholder}
               errored={!!errors?.telegram}
             />
           </div>
 
           <ButtonBlack
-            title="Отримати консультацію"
+            title={dict.formModal.submitButton}
             onClick={() => submit({ name, phone, telegram })}
           />
 
           <p className="text-xs leading-5 text-[#7A8399]">
-            <span>Натискаючи на «Отримати консультацію», ти погоджуєшся з нашими </span>
-            <Link href={''} className="text-[#464E62] hover:underline">Умовами використання</Link>,
-            <Link href={''} className="text-[#464E62] hover:underline"> Політикою конфіденційності </Link>
-            <span> та </span>
-            <Link href={''} className="text-[#464E62] hover:underline">Політикою файлів cookie</Link>.
+            <span>{dict.formModal.disclaimerPrefix} </span>
+            <Link href={''} className="text-[#464E62] hover:underline">{dict.formModal.termsOfUse}</Link>,
+            <Link href={''} className="text-[#464E62] hover:underline"> {dict.formModal.privacyPolicy} </Link>
+            <span> {dict.formModal.and} </span>
+            <Link href={''} className="text-[#464E62] hover:underline">{dict.formModal.cookiePolicy}</Link>.
           </p>
         </div>
       </div>

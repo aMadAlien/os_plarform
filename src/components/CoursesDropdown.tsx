@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { coursesCategories } from "@/sections/home/data";
+import { useDictionary } from "@/i18n/DictionaryContext";
 
 export default function CoursesDropdown() {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { dict } = useDictionary();
 
   useEffect(() => {
     if (!open) return;
@@ -27,7 +28,7 @@ export default function CoursesDropdown() {
   return (
     <div ref={dropdownRef} className="relative">
       <button type="button" onClick={() => setOpen(!open)} className="flex items-center gap-1">
-        Курси
+        {dict.header.courses}
         <svg className={`w-3 h-3 transition-transform duration-200 ${open ? "rotate-180" : ""}`} viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -36,7 +37,7 @@ export default function CoursesDropdown() {
       <div className={`courses-dropdown ${open ? "active" : ""} absolute top-full left-0 mt-3 bg-white rounded-[16px] py-2 min-w-[220px] z-50`}
         style={{ boxShadow: '0px 4px 24px 0px #22262F1A' }}
       >
-        {coursesCategories
+        {dict.courses.categories
           .filter(c => c.id !== "top")
           .map((cat) => (
             <button

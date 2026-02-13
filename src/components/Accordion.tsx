@@ -1,9 +1,12 @@
 "use client";
 
 import { useState } from "react"
+import { useDictionary } from "@/i18n/DictionaryContext";
 
-export default function Accordion({ data }: { data: { title: string, text: string }[] }) {
+export default function Accordion() {
   const [active, setActive] = useState<number | null>(0);
+  const { dict } = useDictionary();
+  const data = dict.faq;
 
   if (!data || !data.length) return null;
 
