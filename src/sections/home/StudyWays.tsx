@@ -57,7 +57,7 @@ export default function StudyWays() {
           <div className={`tab-media ${visible ? 'active' : ''} shrink-0 w-[55%] max-md:w-full`}>
             {tabData?.img ? (
               <Image
-                src={tabData.img}
+                src={assetUrl(tabData.img!)}
                 width={700}
                 height={500}
                 alt=""
@@ -84,7 +84,7 @@ export default function StudyWays() {
           dict.studyWays.cards.map((item, index) => (
             <div key={index} className="last:text-white last:bg-black bg-white rounded-[24px] sm:rounded-[32px] p-4 sm:p-5 pb-8 sm:pb-10">
               <div className='flex flex-col items-center'>
-                <Image className='mb-6 sm:mb-8 w-full max-w-[280px]' src={item.image} width={280} height={200} alt="Explaner" />
+                <Image className='mb-6 sm:mb-8 w-full max-w-[280px]' src={assetUrl(item.image)} width={280} height={200} alt="Explaner" />
                 <h4 className='font-medium text-xl sm:text-2xl text-center'>{item.title}</h4>
                 <p className='max-w-[280px] text-sm sm:text-base leading-5 sm:leading-[22px] mt-4 sm:mt-6 text-center'>{item.text}</p>
               </div>

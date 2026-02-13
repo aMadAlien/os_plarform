@@ -8,6 +8,7 @@ import Checkbox from "@/components/Checkbox";
 import Input from "@/components/Input";
 import { validateData, type FormData } from "@/utils/validation";
 import { useDictionary } from "@/i18n/DictionaryContext";
+import { assetUrl } from "@/utils/assetUrl";
 
 
 export default function Form() {
@@ -48,7 +49,7 @@ export default function Form() {
         <div className="w-full max-w-[626px]">
           <Image
             className="w-[378px] mb-4 max-md:w-[90%] max-md:mx-auto"
-            src="/images/form.webp" width={378} height={378} alt="image" />
+            src={assetUrl("/images/form.webp")} width={378} height={378} alt="image" />
           <p className="text-xl leading7 font-medium">{dict.form.description}</p>
         </div>
 

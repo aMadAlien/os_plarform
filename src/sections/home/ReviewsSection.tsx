@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import ArrowShortIcon from "@/assets/icons/ArrowShortIcon";
 import { useDictionary } from "@/i18n/DictionaryContext";
+import { assetUrl } from "@/utils/assetUrl";
 
 const reviews = [
   "/images/reviews/1.webp",
@@ -118,7 +119,7 @@ export default function ReviewsSection() {
         {reviews.map((review, index) => (
           <div key={index} className="rounded-[25px] scrollbar--top w-[85%] md:w-[55%] lg:w-[31%] aspect-[1/1.3] relative shrink-0 overflow-hidden">
             <Image
-              src={review}
+              src={assetUrl(review)}
               fill
               sizes="(max-width: 768px) 85vw, (max-width: 1024px) 55vw, 31vw"
               alt={`review-${index}`}

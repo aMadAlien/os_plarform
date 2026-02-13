@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useDictionary } from "@/i18n/DictionaryContext";
+import { assetUrl } from "@/utils/assetUrl";
 
 export default function Warranty() {
   const { dict } = useDictionary();
@@ -24,7 +25,7 @@ export default function Warranty() {
 
         <div className="relative w-full min-h-[400px] sm:flex-[1_1_600px] md:flex-[0_0_500px]">
           <Image
-            src="/images/warranty.webp"
+            src={assetUrl("/images/warranty.webp")}
             fill
             sizes="(max-width: 768px) 100vw, 500px"
             alt=""

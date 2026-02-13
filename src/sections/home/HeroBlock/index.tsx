@@ -6,6 +6,7 @@ import FormModal from '@/components/FormModal';
 import { useGeneralContext } from '@/context/GeneralContext';
 import useCountUp from '@/utils/useCountUp';
 import { useDictionary } from '@/i18n/DictionaryContext';
+import { assetUrl } from '@/utils/assetUrl';
 
 export default function HeroBlock() {
   const { count, ref: counterRef } = useCountUp(99);
@@ -81,7 +82,7 @@ export default function HeroBlock() {
             <div className="hidden md:flex absolute max-lg:bottom-0 right-0 lg:-right-20 justify-center">
               <Image
                 className="w-[450px] lg:w-[656px] h-auto"
-                src="/images/hero.webp"
+                src={assetUrl("/images/hero.webp")}
                 width={656}
                 height={656}
                 alt=""
@@ -108,7 +109,7 @@ export default function HeroBlock() {
                   <div className="bg-[#2A2F3C] rounded-[12px] md:rounded-[16px] w-[56px] h-[56px] md:w-[68px] md:h-[68px] flex items-center justify-center shrink-0">
                     <Image
                       className="w-[24px] h-[24px] md:w-[32px] md:h-[32px]"
-                      src={`/images/icons/${item.icon}.webp`}
+                      src={assetUrl(`/images/icons/${item.icon}.webp`)}
                       width={32}
                       height={32}
                       alt=""
@@ -128,7 +129,7 @@ export default function HeroBlock() {
           >
             <Image
               className="w-[56px] h-[24px]"
-              src="/images/icons/people.webp"
+              src={assetUrl("/images/icons/people.webp")}
               width={112}
               height={48}
               alt=""

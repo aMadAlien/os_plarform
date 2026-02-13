@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useDictionary } from "@/i18n/DictionaryContext";
+import { assetUrl } from "@/utils/assetUrl";
 
 export default function Slogan() {
   const { dict } = useDictionary();
@@ -12,7 +13,7 @@ export default function Slogan() {
         background: "linear-gradient(90deg, #390911 0%, #B62F44 16.01%, #390911 55.58%, #390911 100%)"
       }}>
       <div className="max-w-[1200px] min-h-[90px] mx-auto flex max-md:flex-col gap-7 md:gap-3 flex-wrap items-center justify-cennter md:justify-between">
-        <Image src="/images/logo-dark.webp" width={180} height={40} alt="os platform" />
+        <Image src={assetUrl("/images/logo-dark.webp")} width={180} height={40} alt="os platform" />
 
         <div>
           <p className="text-white mb-1.5 text-lg lg:text-xl">{dict.slogan.line1}</p>

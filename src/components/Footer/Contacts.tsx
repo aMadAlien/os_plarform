@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useDictionary } from "@/i18n/DictionaryContext";
+import { assetUrl } from "@/utils/assetUrl";
 
 export default function Contacts() {
   const { dict } = useDictionary();
@@ -35,7 +36,7 @@ export default function Contacts() {
         >{dict.footer.instagramText}</a>
       </div>
 
-      <Image src="/images/footer.webp" width={320} height={180} alt="image" className="w-full rounded-[12px]" />
+      <Image src={assetUrl("/images/footer.webp")} width={320} height={180} alt="image" className="w-full rounded-[12px]" />
     </div>
   )
 }

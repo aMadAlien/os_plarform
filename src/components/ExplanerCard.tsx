@@ -1,5 +1,6 @@
 import { type ReactNode } from "react";
 import Image from "next/image";
+import { assetUrl } from "@/utils/assetUrl";
 
 export function ExplanerCard({
   title,
@@ -24,7 +25,7 @@ export function ExplanerCard({
         {description}
       </p>
       <Image
-        src={image}
+        src={assetUrl(image)}
         width={280}
         height={200}
         className="max-h-[200px] w-auto mx-auto mt-10 object-contain"

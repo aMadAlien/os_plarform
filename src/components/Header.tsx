@@ -7,6 +7,7 @@ import CoursesDropdown from "./CoursesDropdown";
 import LanguageDropdown from "./LanguageDropdown";
 import ButtonBlack from "./ButtonBlack";
 import { useDictionary } from "@/i18n/DictionaryContext";
+import { assetUrl } from "@/utils/assetUrl";
 
 function BurgerIcon({ open }: { open: boolean }) {
   return (
@@ -36,7 +37,7 @@ export default function Header() {
         <div className="flex justify-between items-center gap-5">
 
           <nav className="flex gap-[2.778vw] items-center xl:w-[60%]">
-            <Image src="/images/logo-dark.webp" width={160} height={36} alt="os platform" className="w-[120px] md:w-[160px]" />
+            <Image src={assetUrl("/images/logo-dark.webp")} width={160} height={36} alt="os platform" className="w-[120px] md:w-[160px]" />
             <ul className="hidden lg:flex items-center gap-2 flex-[0_1_560px] justify-between">
               <li className="nav-link"><CoursesDropdown /></li>
               <li className="nav-link"><Link href="#section-team">{dict.header.aboutUs}</Link></li>

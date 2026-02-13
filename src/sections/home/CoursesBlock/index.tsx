@@ -123,7 +123,7 @@ export default function CoursesBlock() {
                       course.img ?
                         <Image
                           className="w-full sm:w-[180px] lg:w-[220px] aspect-square shrink-0 object-cover rounded-[12px]"
-                          src={course.img} width={220} height={220} alt="" />
+                          src={assetUrl(course.img!)} width={220} height={220} alt="" />
                         :
                         <video
                           src={assetUrl(course.video!)}
@@ -144,7 +144,7 @@ export default function CoursesBlock() {
           </div>
 
           <div className="max-sm:flex-wrap bg-black rounded-[20px] mt-15 px-5 py-4 flex gap-5">
-            <Image src="/images/icons/emoji.webp" width={48} height={48} alt="" className="shrink-0" />
+            <Image src={assetUrl("/images/icons/emoji.webp")} width={48} height={48} alt="" className="shrink-0" />
             <span className="text-white text-sm font-medium">{dict.courses.cantDecide}</span>
 
             <button
