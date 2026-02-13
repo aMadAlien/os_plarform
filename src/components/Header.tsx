@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import CoursesDropdown from "./CoursesDropdown";
 import LanguageDropdown from "./LanguageDropdown";
@@ -35,7 +36,7 @@ export default function Header() {
         <div className="flex justify-between items-center gap-5">
 
           <nav className="flex gap-[2.778vw] items-center xl:w-[60%]">
-            <img src="/images/logo-dark.webp" alt="One Media" className="w-[120px] md:w-[160px]" />
+            <Image src="/images/logo-dark.webp" width={160} height={36} alt="os platform" className="w-[120px] md:w-[160px]" />
             <ul className="hidden lg:flex items-center gap-2 flex-[0_1_560px] justify-between">
               <li className="nav-link"><CoursesDropdown /></li>
               <li className="nav-link"><Link href="#section-team">{dict.header.aboutUs}</Link></li>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useDictionary } from "@/i18n/DictionaryContext";
+import { assetUrl } from "@/utils/assetUrl";
 
 export default function TeamBlock() {
   const { dict } = useDictionary();
@@ -23,7 +24,7 @@ export default function TeamBlock() {
           </button>
         </div>
         <video
-          src="/video/team.mp4"
+          src={assetUrl("/video/team.mp4")}
           className="object-cover h-full w-full"
           muted
           loop

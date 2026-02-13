@@ -106,9 +106,11 @@ export default function HeroBlock() {
               dict.hero.features.map((item, index) => (
                 <div key={index} className="flex items-center gap-3 md:gap-4">
                   <div className="bg-[#2A2F3C] rounded-[12px] md:rounded-[16px] w-[56px] h-[56px] md:w-[68px] md:h-[68px] flex items-center justify-center shrink-0">
-                    <img
+                    <Image
                       className="w-[24px] h-[24px] md:w-[32px] md:h-[32px]"
                       src={`/images/icons/${item.icon}.webp`}
+                      width={32}
+                      height={32}
                       alt=""
                     />
                   </div>

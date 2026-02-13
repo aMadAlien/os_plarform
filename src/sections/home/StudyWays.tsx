@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { TabsBlock } from '@/components/TabsBlock'
 import { useDictionary } from '@/i18n/DictionaryContext'
 import { joinWithBr } from '@/i18n/jsx-helpers'
+import { assetUrl } from '@/utils/assetUrl'
 
 export type StudyWay = 'couches' | 'warranty' | 'comunity';
 
@@ -65,7 +66,7 @@ export default function StudyWays() {
             ) : (
               <video
                 key={tabData?.video}
-                src={tabData?.video}
+                src={tabData?.video ? assetUrl(tabData.video) : undefined}
                 className="w-full object-cover rounded-l-[24px]"
                 muted
                 loop

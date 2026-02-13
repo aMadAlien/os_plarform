@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState, type JSX } from "react";
 import Image from "next/image";
 import ArrowIcon from "@/assets/icons/ArrowIcon";
 import { useDictionary } from "@/i18n/DictionaryContext";
+import { assetUrl } from "@/utils/assetUrl";
 
 const TRANSITION_MS = 250;
 
@@ -125,7 +126,7 @@ export default function CoursesBlock() {
                           src={course.img} width={220} height={220} alt="" />
                         :
                         <video
-                          src={course.video}
+                          src={assetUrl(course.video!)}
                           className="w-full sm:w-[180px] lg:w-[220px] aspect-square shrink-0 object-cover rounded-[12px]"
                           muted
                           loop

@@ -2,7 +2,7 @@ import type { Dictionary } from "../dictionary-type";
 
 const en: Dictionary = {
   metadata: {
-    title: "One Media - Learning Platform",
+    title: "Learning Platform",
     description: "Learning platform for online income",
   },
   header: {
