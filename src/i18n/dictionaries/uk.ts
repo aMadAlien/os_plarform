@@ -375,6 +375,7 @@ const uk: Dictionary = {
   languageSwitcher: {
     uk: "Укр",
     en: "Eng",
+    ru: "Рос",
   },
   validation: {
     required: "Обов\u2019язково для заповнення.",

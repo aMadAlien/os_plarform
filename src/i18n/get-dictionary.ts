@@ -4,6 +4,7 @@ import type { Dictionary } from "./dictionary-type";
 const dictionaries: Record<Locale, () => Promise<Dictionary>> = {
   uk: () => import("./dictionaries/uk").then((m) => m.default),
   en: () => import("./dictionaries/en").then((m) => m.default),
+  ru: () => import("./dictionaries/ru").then((m) => m.default),
 };
 
 export async function getDictionary(locale: Locale): Promise<Dictionary> {

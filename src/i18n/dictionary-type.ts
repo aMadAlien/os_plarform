@@ -128,6 +128,7 @@ export interface Dictionary {
   languageSwitcher: {
     uk: string;
     en: string;
+    ru: string;
   };
   validation: {
     required: string;

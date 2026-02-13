@@ -375,6 +375,7 @@ const en: Dictionary = {
   languageSwitcher: {
     uk: "Ukr",
     en: "Eng",
+    ru: "Rus",
   },
   validation: {
     required: "This field is required.",

@@ -7,6 +7,7 @@ import { useDictionary } from "@/i18n/DictionaryContext";
 const labels: Record<Locale, string> = {
   uk: "Укр",
   en: "Eng",
+  ru: "Рус",
 };
 
 export default function LanguageSwitcher() {

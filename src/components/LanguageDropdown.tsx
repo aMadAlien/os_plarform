@@ -28,11 +28,22 @@ const flagIcons: Record<Locale, React.ReactNode> = {
       </g>
     </svg>
   ),
+  ru: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <clipPath id="flag-ru"><rect width="24" height="24" rx="12" fill="white" /></clipPath>
+      <g clipPath="url(#flag-ru)">
+        <rect width="24" height="24" rx="12" fill="#D52B1E" />
+        <path d="M0 0H24V8H0Z" fill="white" />
+        <path d="M0 8H24V16H0Z" fill="#0039A6" />
+      </g>
+    </svg>
+  ),
 };
 
 const labels: Record<Locale, string> = {
   uk: "Українська",
   en: "English",
+  ru: "Русский",
 };
 
 export default function LanguageDropdown() {
