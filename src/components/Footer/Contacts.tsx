@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useDictionary } from "@/i18n/DictionaryContext";
 
 export default function Contacts() {
@@ -34,7 +35,7 @@ export default function Contacts() {
         >{dict.footer.instagramText}</a>
       </div>
 
-      <img src="/images/footer.png" alt="image" className="w-full rounded-[12px]" />
+      <Image src="/images/footer.webp" width={320} height={180} alt="image" className="w-full rounded-[12px]" />
     </div>
   )
 }

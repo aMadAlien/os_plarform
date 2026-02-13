@@ -1,4 +1,5 @@
 import { type ReactNode } from "react";
+import Image from "next/image";
 
 export function ExplanerCard({
   title,
@@ -22,8 +23,10 @@ export function ExplanerCard({
       <p className={`${isOdd ? "text-black" : "text-white"} font-medium text-base lg:text-lg leading-6 mt-5 lg:mt-8`}>
         {description}
       </p>
-      <img
+      <Image
         src={image}
+        width={280}
+        height={200}
         className="max-h-[200px] w-auto mx-auto mt-10 object-contain"
         alt="Explaner Card Image"
       />

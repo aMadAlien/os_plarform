@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useDictionary } from "@/i18n/DictionaryContext";
 
 export default function Warranty() {
@@ -22,10 +23,12 @@ export default function Warranty() {
         </div>
 
         <div className="relative w-full min-h-[400px] sm:flex-[1_1_600px] md:flex-[0_0_500px]">
-          <img
-            src="/images/warranty.png"
+          <Image
+            src="/images/warranty.webp"
+            fill
+            sizes="(max-width: 768px) 100vw, 500px"
             alt=""
-            className="h-full w-full absolute object-cover rounded-[48px]"
+            className="object-cover rounded-[48px]"
           />
         </div>
       </div>

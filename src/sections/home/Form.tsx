@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import ArrowShortIcon from "@/assets/icons/ArrowShortIcon";
 import Checkbox from "@/components/Checkbox";
@@ -45,9 +46,9 @@ export default function Form() {
 
       <div className="flex max-md:flex-col gap-6">
         <div className="w-full max-w-[626px]">
-          <img
+          <Image
             className="w-[378px] mb-4 max-md:w-[90%] max-md:mx-auto"
-            src="/images/form.png" alt="image" />
+            src="/images/form.webp" width={378} height={378} alt="image" />
           <p className="text-xl leading7 font-medium">{dict.form.description}</p>
         </div>
 

@@ -1,24 +1,25 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 import ArrowShortIcon from "@/assets/icons/ArrowShortIcon";
 import { useDictionary } from "@/i18n/DictionaryContext";
 
 const reviews = [
-  "/images/reviews/1.png",
-  "/images/reviews/1.png",
-  "/images/reviews/1.png",
-  "/images/reviews/1.png",
-  "/images/reviews/1.png",
-  "/images/reviews/1.png",
-  "/images/reviews/1.png",
-  "/images/reviews/1.png",
-  "/images/reviews/1.png",
-  "/images/reviews/1.png",
-  "/images/reviews/1.png",
-  "/images/reviews/1.png",
-  "/images/reviews/1.png",
-  "/images/reviews/1.png",
+  "/images/reviews/1.webp",
+  "/images/reviews/2.webp",
+  "/images/reviews/3.webp",
+  "/images/reviews/4.webp",
+  "/images/reviews/1.webp",
+  "/images/reviews/2.webp",
+  "/images/reviews/3.webp",
+  "/images/reviews/4.webp",
+  "/images/reviews/1.webp",
+  "/images/reviews/2.webp",
+  "/images/reviews/3.webp",
+  "/images/reviews/4.webp",
+  "/images/reviews/1.webp",
+  "/images/reviews/2.webp",
 ]
 
 export default function ReviewsSection() {
@@ -116,12 +117,13 @@ export default function ReviewsSection() {
       >
         {reviews.map((review, index) => (
           <div key={index} className="rounded-[25px] scrollbar--top w-[85%] md:w-[55%] lg:w-[31%] aspect-[1/1.3] relative shrink-0 overflow-hidden">
-            <img
+            <Image
               src={review}
+              fill
+              sizes="(max-width: 768px) 85vw, (max-width: 1024px) 55vw, 31vw"
               alt={`review-${index}`}
-              key={index}
               draggable={false}
-              className="object-cover w-full h-full absolute"
+              className="object-cover"
             />
           </div>
         ))}

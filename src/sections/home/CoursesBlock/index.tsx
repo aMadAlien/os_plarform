@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState, type JSX } from "react";
+import Image from "next/image";
 import ArrowIcon from "@/assets/icons/ArrowIcon";
 import { useDictionary } from "@/i18n/DictionaryContext";
 
@@ -119,9 +120,9 @@ export default function CoursesBlock() {
 
                     {
                       course.img ?
-                        <img
+                        <Image
                           className="w-full sm:w-[180px] lg:w-[220px] aspect-square shrink-0 object-cover rounded-[12px]"
-                          src={course.img} alt="" />
+                          src={course.img} width={220} height={220} alt="" />
                         :
                         <video
                           src={course.video}
@@ -142,7 +143,7 @@ export default function CoursesBlock() {
           </div>
 
           <div className="max-sm:flex-wrap bg-black rounded-[20px] mt-15 px-5 py-4 flex gap-5">
-            <img src="/images/icons/emoji.png" alt="" className="shrink-0" />
+            <Image src="/images/icons/emoji.webp" width={48} height={48} alt="" className="shrink-0" />
             <span className="text-white text-sm font-medium">{dict.courses.cantDecide}</span>
 
             <button

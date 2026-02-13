@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import ButtonBlack from '@/components/ButtonBlack';
 import FormModal from '@/components/FormModal';
 import { useGeneralContext } from '@/context/GeneralContext';
@@ -78,10 +79,13 @@ export default function HeroBlock() {
             </div>
 
             <div className="hidden md:flex absolute max-lg:bottom-0 right-0 lg:-right-20 justify-center">
-              <img
+              <Image
                 className="w-[450px] lg:w-[656px] h-auto"
-                src={`/images/hero.png`}
+                src="/images/hero.webp"
+                width={656}
+                height={656}
                 alt=""
+                priority
               />
             </div>
           </div>
@@ -120,9 +124,11 @@ export default function HeroBlock() {
               boxShadow: '1px 4px 12.7px 0px #B22E42',
             }}
           >
-            <img
+            <Image
               className="w-[56px] h-[24px]"
-              src={`/images/icons/people.png`}
+              src="/images/icons/people.webp"
+              width={112}
+              height={48}
               alt=""
             />
 
